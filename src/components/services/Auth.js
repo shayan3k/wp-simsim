@@ -15,6 +15,7 @@ export const JWTLogin = async data => {
       secureStorage.setItem("username", data.username);
       secureStorage.setItem("password", data.password);
       secureStorage.setItem("email", res.data.user_email);
+      console.log(res);
       return {
         token: res.data.token,
         status: res.status,
@@ -45,7 +46,7 @@ export const JWTValidate = async () => {
       };
     })
     .catch(err => {
-      console.log(err);
+      console.log(err.response);
       return {
         status: err.response.status
       };

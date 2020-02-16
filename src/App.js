@@ -16,12 +16,12 @@ import secureStorage from "./components/services/Storage";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 function App() {
-  console.log(window.location);
   const logedIn = useStoreState(state => state.auth.logedIn);
   const setLogedIn = useStoreActions(actions => actions.auth.setLogedIn);
   const setEmail = useStoreActions(actions => actions.auth.setEmail);
   const setNiceName = useStoreActions(actions => actions.auth.setNiceName);
   const islogedIn = () => {
+    console.log("Authenticating ... ");
     JWTValidate()
       .then(res => {
         console.log(res);
@@ -39,6 +39,10 @@ function App() {
         setNiceName("");
       });
   };
+
+  useEffect(() => {
+    islogedIn();
+  });
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route

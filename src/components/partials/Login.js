@@ -50,8 +50,7 @@ function Login() {
           setLogedIn(true);
           setEmail(data.email);
           setNiceName(data.niceName);
-
-          window.location.href = "/";
+          // window.location.href = "/wordpress/";
         } else {
           setError({
             msg: data.message,
