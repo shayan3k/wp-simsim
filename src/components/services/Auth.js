@@ -37,6 +37,7 @@ export const JWTLogout = () => {
 };
 
 export const JWTValidate = async () => {
+  console.log(JWTHeader());
   return await axios
     .post(url + "/jwt-auth/v1/token/validate", {}, JWTHeader())
     .then(res => {
