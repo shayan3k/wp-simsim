@@ -11,11 +11,14 @@ import Rahnama from "./components/Rahnama";
 import Faq from "./components/Faq";
 import LoginPage from "./components/LoginPage";
 import Dashboard from "./components/Dashboard";
+import PageNotFound from "./components/partials/PageNotFound";
 import { JWTCheck, JWTValidate } from "./components/services/Auth";
 import secureStorage from "./components/services/Storage";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 function App() {
+  console.log(secureStorage.getItem("jwt"));
+
   const logedIn = useStoreState(state => state.auth.logedIn);
   const setLogedIn = useStoreActions(actions => actions.auth.setLogedIn);
   const setEmail = useStoreActions(actions => actions.auth.setEmail);
@@ -25,10 +28,11 @@ function App() {
     JWTValidate()
       .then(res => {
         console.log(res);
-        if (!(logedIn === true) && res.status === 200) {
+        if (res.status === 200) {
           setLogedIn(true);
           setEmail(secureStorage.getItem("email"));
           setNiceName(secureStorage.getItem("niceName"));
+        } else {
         }
       })
       .catch(e => {
@@ -74,9 +78,10 @@ function App() {
           <Rahnama path="/wordpress/guide" />
           <ContactUs path="/wordpress/contact-us" />
           <Faq path="/wordpress/faq" />
-
-          <PrivateRoute path="/wordpress/Dashboard" component={Dashboard} />
+          <PrivateRoute path="/wordpress/dashboard" component={Dashboard} />
           <AuthenticatedRoute path="/wordpress/login" component={LoginPage} />
+
+          <Route component={PageNotFound} />
         </Switch>
       </Router>
     </>

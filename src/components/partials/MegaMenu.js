@@ -226,13 +226,23 @@ export default function MegaMenu() {
         <div className="w-100 m-0 p-0 d-flex justify-content-between align-items-center">
           <div className="px-1 d-inline">
             {logedIn ? (
-              <Link className="logout-btn font3" onClick={() => JWTLogout()}>
-                خروج
+              <div className='d-flex justify-content-between align-items-center'>
+              <Link className="logout-btn font3 d-flex justify-content-center align-items-center px-2 " onClick={() => JWTLogout()}>
+                <i class="fas fa-sign-out-alt fa-2x"></i>
+                
               </Link>
+              <Link className="login-btn font2 px-2" to="/wordpress/dashboard">
+                داشبورد
+              </Link>
+              </div>
+
             ) : (
               <Link className="login-btn font3" to="/wordpress/login">
+                            <i class="fas fa-sign-in-alt fa-rotate-180 fa-2x"></i>
+
                 ورود/ثبت نام
               </Link>
+
             )}
           </div>
 

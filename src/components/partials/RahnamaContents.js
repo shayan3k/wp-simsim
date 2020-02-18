@@ -1,62 +1,198 @@
-import React from 'react'
+import React from "react";
 
 function RahnamaContents() {
-    return (
+  return (
+    <div className="container row p-0 m-0 mx-auto">
+      <div className="col-12 ml-auto pr-0" id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                چگونه با فروشندگان ارتباط برقرار کنیم؟
+              </button>
+            </h5>
+          </div>
 
-
-        <div className="container row p-0 m-0 mx-auto">
-
-            <div className='col-12 ml-auto pr-0' id="accordion">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                چگونه کون خود را بشوریم
-                            </button>
-                        </h5>
-                    </div>
-
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            برای شستن کون خور ابتدشیر آب را باز میکنیم و از ولزم بودن آب اطمینان حاصل میکنیم
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                چگونه کون خود را بشوریم
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
-                            برای شستن کون خور ابتدشیر آب را باز میکنیم و از ولزم بودن آب اطمینان حاصل میکنیم
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                چگونه کون خود را بشوریم
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            برای شستن کون خور ابتدشیر آب را باز میکنیم و از ولزم بودن آب اطمینان حاصل میکنیم
-                        </div>
-                    </div>
-                </div>
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              روی کارت فروشنده ی مورر نظر خود کلیک کرده،کارت میچرخد و به راحتی
+              به شماره فروشنده دسترسی خواهید داشت
             </div>
-
-
+          </div>
         </div>
-
-
-    )
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                چگونه سیمکارت مورد نظر خود را بیابیم؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              در بخش جستجو تمام آیکن های مورد نظر خود اعم از قیمت ، استان
+              ارزشمندی و ... را کامل پر کنید و سپس کلید جستجو را لمس کنید.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                فروشندگان شخصی چگونه به ارزش واقعی سیمکارت خود برسند؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseThree"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              فروشندگان شخصی میتوانند به سیمکارت خود اصطلاحا چوب حراج زده و
+              گزینه ی به بالاترین قیمت پیشنهادی را انتخاب کنند تا به قیمت اصلی
+              سیمکارت خود برسند و با تصمیم درست معامله ی باب میل خود را انجام
+              دهند.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                معیار انتخاب فروشندگان برتر هفته چیست؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseFour"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              بر اساس الگوریتمهای سایت و میزان ارتباطات فروشندگان با مشتریان
+              درجه بندی می شوند.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                چگونه ثبت نام کنم؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseFive"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              سمت چپ بالای صفحه میتوانید گزینه ی ثبت نام را انتخاب کرده و با
+              تکمیل مراحل ، ثبت نام خود را انجام دهید.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collpaseSix"
+                aria-expanded="false"
+                aria-controls="collpaseSix"
+              >
+                حدودا چقدر زمان میبرد تا سیمکارتم رو بفروشم؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collpaseSix"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              بسته به نوع سیمکارت و قیمت و ارزش واقعی هر سیمکارت متفاوت است اما
+              برای تضمین فروش میتوانید از گزینه ی بروز رسانی استفاده کنید.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                data-toggle="collapse"
+                data-target="#collpaseSeven"
+                aria-expanded="false"
+                aria-controls="collpaseSeven"
+              >
+                آیا وب سایت از مراودات بین مالک و خریدار نفع میبرد؟
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collpaseSeven"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              خیر این سایت به هیچ عنوان از مراودات بین فروشنده و خریدار سودی
+              نمیبرد تنها هدف این سایت جلب رضایت هم میهنان عزیز و خدمت به شما
+              بزرگواران است.{" "}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default RahnamaContents
+export default RahnamaContents;

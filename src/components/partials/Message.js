@@ -17,12 +17,25 @@ function Message() {
     return resetVariables();
   }, []);
 
-  return (
+  return msg && status ? (
     <div
       className={"alert alert-" + status}
       dangerouslySetInnerHTML={{ __html: msg }}
     />
+  ) : (
+    ""
   );
 }
 
 export default Message;
+
+{
+  /* <ul
+      className={"alert alert-" + status}
+    >
+      {msg.map(()=>{
+        
+      })}
+
+    </ul> */
+}

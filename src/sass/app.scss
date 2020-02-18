@@ -8,7 +8,8 @@ $brand-navbar-items-hover-text: black;
 $brand-seperator: red;
 $brand-fourthly: blue;
 $brand-hover: #466060;
-$brand-mega-menu-items: gray;
+$brand-footer: white;
+$brand-mega-menu-items: rgb(15, 12, 12);
 $brand-primary-lighter: #b6faca;
 $brand-whitish: #eee;
 $brand-select-bg: transparent;
@@ -458,13 +459,40 @@ $font-datePicker: 0.6rem;
   height: 100%;
 }
 
+//DASHBOARD
+.mh-100px {
+  min-height: 150px !important ;
+}
 //Footer Section
 
 /*FOOTER*/
 
 footer {
-  background: white;
+  background: $brand-footer;
   color: $brand-black !important;
+  position: relative;
+}
+
+.go-to-top {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform: translate(-25px, -50%) rotate(45deg);
+  border-radius: 50%;
+  border: 3px solid $brand-footer;
+  top: 0;
+  left: 50%;
+  background: $brand-footer;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left-color: $brand-seperator;
+  border-top-color: $brand-seperator;
+}
+.fa-rotate-45 {
+  transform: rotate(-45deg);
+  color: $brand-seperator;
 }
 
 footer a {
@@ -641,14 +669,14 @@ ul.social-network li {
 .custom-select-container {
   width: 100%;
   background: $brand-select-bg !important;
-  margin: 0 auto;
+  margin: 0.4rem auto;
   padding: 0 1.7rem !important;
 }
 
 .custom-select-opener {
   width: 100%;
-  padding: 0.8rem 1.2rem;
-  margin: 0 8px 8px 0 !important;
+  padding: 0.4rem 1.2rem;
+  margin: 0.5px 8px 0 !important;
   background: transparent !important;
   opacity: 1;
   border: none;
