@@ -89,9 +89,14 @@ const store = createStore({
   },
   searchBox: {
     operator: "",
+    status: "",
     setOperator: action((state, payload) => {
-      state.msg = payload;
-      console.log(state.msg);
+      state.operator = payload;
+      console.log(state.operator);
+    }),
+    setStatus: action((state, payload) => {
+      state.status = payload;
+      console.log(state.status);
     })
   }
 });

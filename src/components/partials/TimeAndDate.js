@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment-jalaali";
+import persianJs from "persianjs";
 
 export default function TimeAndDate() {
   const [counter, setCounter] = useState(-9999);

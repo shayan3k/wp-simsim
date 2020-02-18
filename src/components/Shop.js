@@ -30,7 +30,7 @@ export default class Shop extends Component {
         <SectionTitle title="جستجو" collapse="searchBox" />
         <SearchBox />
         <SectionTitle title="سیم کارت یافت شده" collapse="mainAdsToggler" />
-        <MainAds uri="/myadvertisement" />
+        <MainAds uri="/custom-routes/v1/advertisments" />
         <Ad2 />
         <SectionTitle title="پیشنهادهای هفته" collapse="SpecialOffersWrapepr" />
         <div className="SpecialOffersWrapepr">

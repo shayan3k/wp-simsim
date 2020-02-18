@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TweenMax, TimelineMax, CSSPlugin, Power4 } from "gsap";
+import persianJs from "persianjs";
 import img from "../images/hamrah.jpg";
 
 export default class Advertisment extends Component {
@@ -40,7 +41,9 @@ export default class Advertisment extends Component {
         <div className="card-body flip-card-front w-100 h-100 d-flex justify-content-center align-items-center flex-column p-1 ">
           <div className="card-inner-width">
             <h3 className="ad-number font3 text-center pt-0">
-              {this.state.phoneNumber}
+              {persianJs(this.state.phoneNumber)
+                .englishNumber()
+                .toString()}
             </h3>
             <hr className="py-0 my-0" />
           </div>
@@ -49,7 +52,10 @@ export default class Advertisment extends Component {
               {this.state.status} | {this.state.location}
             </h6>
             <p className="card-text font4 text-center p-0 m-0">
-              {this.state.price} تومان
+              {persianJs(this.state.price)
+                .englishNumber()
+                .toString()}
+              تومان
             </p>
             {this.state.sale ? (
               <p className="card-text line-through font5 line text-center p-0 m-0 pb-1">

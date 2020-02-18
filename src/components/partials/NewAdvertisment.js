@@ -219,9 +219,9 @@ export default function NewAdvertisment() {
                   </div>
                   <select className="select-custom w-100" id="Operator">
                     <option defaultValue>اپراتور</option>
-                    <option>همراه اول</option>
-                    <option>ایرانسل</option>
-                    <option>رایتل</option>
+                    <option value="همراه اول">همراه اول</option>
+                    <option value="ایرانسل">ایرانسل</option>
+                    <option value="رایتل">رایتل</option>
                   </select>
                 </div>
                 <div className="input-group mt-3 d-flex justify-content-center align-content-end">

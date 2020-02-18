@@ -76,7 +76,6 @@ function App() {
           <Faq path="/wordpress/faq" />
           <PrivateRoute path="/wordpress/dashboard" component={Dashboard} />
           <AuthenticatedRoute path="/wordpress/login" component={LoginPage} />
-
           <Route component={PageNotFound} />
         </Switch>
       </Router>

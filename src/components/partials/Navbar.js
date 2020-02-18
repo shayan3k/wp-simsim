@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { TimelineLite, Power4 } from "gsap";
 import { Link } from "react-router-dom";
-import persianJs from "persianjs";
 import TimeAndDate from "./TimeAndDate";
 import Axios from "axios";
 

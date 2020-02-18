@@ -1,35 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import customSelect from "custom-select";
 import "custom-select/build/custom-select.css";
 
 function SearchBox() {
-  const logedIn = useStoreState(state => state.auth.logedIn);
-  const setLogedIn = useStoreActions(actions => actions.auth.setLogedIn);
+  const [Selects, setSelects] = useState("");
+  const setOperator = useStoreActions(actions => actions.searchBox.setOperator);
+  const setStatus = useStoreActions(actions => actions.searchBox.setStatus);
 
   useEffect(() => {
     SelectConfig();
+
+    //Remove listeners on UnMount
   }, []);
 
   const SelectConfig = () => {
     const Selects = customSelect("select");
     setSelects(Selects);
-    Selects[0].select.addEventListener("change", e => {
+
+    Selects[5].select.addEventListener("change", e => {
       handleOperatorOnChange(e);
     });
 
-    // Selects[1].select.addEventListener("change", e => {
-    //   handleOperatorOnChange(e);
-    // });
+    Selects[7].select.addEventListener("change", e => {
+      handleStatusOnChange(e);
+    });
+  };
 
-    // Selects[2].select.addEventListener("change", e => {
-    //   handleStatusOnChange(e);
-    // });
+  const handleResetButton = () => {
+    Selects[5].value = "";
+    Selects[7].value = "";
+    setOperator("");
+    setStatus("");
+
+    console.log("Hello");
   };
 
   const handleOperatorOnChange = e => {
-    setPhoneNumber(e.target.value);
-    console.log(e.target.value);
+    setOperator(e.target.value);
+  };
+
+  const handleStatusOnChange = e => {
+    setStatus(e.target.value);
   };
 
   return (
@@ -92,11 +104,18 @@ function SearchBox() {
                       <i className="fas fa-caret-down fa-1x"></i>
                     </span>
                   </div>
-                  <select className="select-custom w-100">
-                    <option defaultValue>استان</option>
-                    <option>همراه اول</option>
-                    <option>ایرانسل</option>
-                    <option>رایتل</option>
+                  <select
+                    className="select-custom w-100"
+                    id="Location"
+                    defaultValue={Location}
+                  >
+                    <option value="" defaultValue>
+                      استان
+                    </option>
+                    <option value="تهران">تهران</option>
+                    <option value="کرج">کرج</option>
+                    <option value="شهرکرد">شهرکرد</option>
+                    <option value="تبریز">تبریز</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">
@@ -132,7 +151,7 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100">
-                    <option defaultValue>بازه قیمتی </option>
+                    <option defaultValue>بازه قیمتی</option>
                     <option>همراه اول</option>
                     <option>ایرانسل</option>
                     <option>رایتل</option>
@@ -146,11 +165,11 @@ function SearchBox() {
                       <i className="fas fa-caret-down fa-1x"></i>
                     </span>
                   </div>
-                  <select className="select-custom w-100">
+                  <select className="select-custom w-100" id="Operator">
                     <option defaultValue>اپراتور</option>
-                    <option>همراه اول</option>
-                    <option>ایرانسل</option>
-                    <option>رایتل</option>
+                    <option value="همراه اول">همراه اول</option>
+                    <option value="ایرانسل">ایرانسل</option>
+                    <option value="رایتل">رایتل</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">
@@ -161,7 +180,7 @@ function SearchBox() {
                   </div>
                   <select className="select-custom w-100">
                     <option defaultValue>نوع</option>
-                    <option>همراه اول</option>
+                    <option>کارکرده</option>
                     <option>ایرانسل</option>
                     <option>رایتل</option>
                   </select>
@@ -172,11 +191,11 @@ function SearchBox() {
                       <i className="fas fa-caret-down fa-1x"></i>
                     </span>
                   </div>
-                  <select className="select-custom w-100">
+                  <select className="select-custom w-100" id="status">
                     <option defaultValue>وضعیت</option>
-                    <option>همراه اول</option>
-                    <option>ایرانسل</option>
-                    <option>رایتل</option>
+                    <option value="صفر">صفر</option>
+                    <option value="تقریبا صفر">تقریبا صفر</option>
+                    <option value="کارکرده">کارکرده</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">
@@ -185,11 +204,12 @@ function SearchBox() {
                       <i className="fas fa-caret-down fa-1x"></i>
                     </span>
                   </div>
-                  <select className="select-custom w-100">
+
+                  <select className="select-custom w-100" id="status">
                     <option defaultValue>مرغوبیت</option>
-                    <option>همراه اول</option>
-                    <option>ایرانسل</option>
-                    <option>رایتل</option>
+                    <option value="رند">رند</option>
+                    <option value="نیمه صفر">نیمه صفر</option>
+                    <option value="معمولی">معمولی</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">
@@ -198,7 +218,7 @@ function SearchBox() {
                       <i className="fas fa-caret-down fa-1x"></i>
                     </span>
                   </div>
-                  <select className="select-custom w-100">
+                  <select className="select-custom w-100 bg-dark">
                     <option defaultValue>نوع رند</option>
                     <option>همراه اول</option>
                     <option>ایرانسل</option>
@@ -212,10 +232,13 @@ function SearchBox() {
                     <h6>جستجو</h6>
                     <i className="fa fa-spinner"></i>
                   </button>
-                  <button className="default-btn btn-search px-5 mx-4 ">
+                  <a
+                    className="default-btn btn-search px-5 mx-4"
+                    onClick={handleResetButton}
+                  >
                     <h6>ریست</h6>
                     <i className="fa fa-spinner"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
