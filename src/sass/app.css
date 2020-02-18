@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.bg-custom {
+  background: rgba(192, 191, 185, 0.945) !important;
+}
+
 .bg-secondary {
   background-color: white !important;
 }
@@ -23,12 +27,21 @@
   font-size: 1.1rem !important;
 }
 
+.font1-2 {
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+
 .font2 {
   font-size: 0.9rem !important;
 }
 
 .font3 {
   font-size: 0.7rem !important;
+}
+
+font3-4 {
+  font-size: 6.5rem !important;
 }
 
 .font4 {
@@ -210,7 +223,7 @@
 }
 
 .nav-link {
-  color: #eee;
+  color: #f3f1f1;
   font-size: 0.8rem !important;
 }
 
@@ -219,7 +232,7 @@
   background: transparent;
   outline: 0;
   border: none;
-  color: #eee;
+  color: #f3f1f1;
   font-size: 0.6rem;
 }
 
@@ -278,7 +291,7 @@
 
 .megaMenuPanel .megaMenuItem {
   background: #0f0c0c;
-  color: #eee;
+  color: #f3f1f1;
   border-radius: 0 5px 0 5px;
   width: 100%;
   margin: 0.2rem;
@@ -346,18 +359,31 @@
           align-items: center;
 }
 
-.slick-slide div {
-  height: 100%;
+.slick-list {
+  background: rgba(192, 191, 185, 0.945);
 }
 
 .advertisment {
   position: relative;
-  height: 100%;
-  width: 8.6rem !important;
+  height: 15rem !important;
+  width: 10rem !important;
   text-align: center;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
+}
+
+.card-flag {
+  position: absolute;
+  width: 40px;
+  top: 0px;
+  left: 0;
+  z-index: 100;
+  background: #86e986;
+  color: white;
+  text-align: center;
+  -webkit-transform: rotateZ(-30deg);
+          transform: rotateZ(-30deg);
 }
 
 .line-through {
@@ -387,6 +413,12 @@
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 /* Position the front and back side */
+.card-body {
+  background: #eee !important;
+  border: 0px solid black;
+  border-radius: 5px;
+}
+
 .flip-card-back {
   position: absolute;
   cursor: pointer;
@@ -401,11 +433,25 @@
 .flip-card-back {
   height: 100%;
   width: 100%;
-  background-color: white;
   border-radius: 5px;
   color: black;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.flip-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background: #2c3e50;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(rgba(52, 152, 219, 0.315)), to(#68a0d894));
+  background: linear-gradient(to right, rgba(52, 152, 219, 0.315), #68a0d894);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .section-contents {
@@ -414,16 +460,6 @@
 
 .googleMap {
   height: 50vh !important;
-}
-
-.ad-img-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.1 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: -1 !important;
 }
 
 .ad-number {
@@ -623,16 +659,7 @@ ul.social-network li {
 }
 
 .sectionTitle {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.sectionTitle .sectionTitleText {
-  padding-bottom: 0 !important;
-  text-align: center;
+  background: #cfcfce;
 }
 
 .custom-select-prepand {
@@ -683,7 +710,7 @@ ul.social-network li {
 .has-focus {
   cursor: pointer !important;
   background: #585858 !important;
-  color: #eee;
+  color: #f3f1f1;
 }
 
 .search-box-title-img {

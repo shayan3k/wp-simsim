@@ -30,7 +30,7 @@ function SectionTitle(props) {
           className="w-100 h-100"
         />
       </div>
-      <div className="col-4 btn btn-light font1 p-0 py-1 border-bottom">
+      <div className="col-4 btn sectionTitle btn-light font1 p-0 py-1 border-bottom">
         <div
           className="sectionTitleToggler"
           onClick={e => handleSectioTitleCollapse(e)}

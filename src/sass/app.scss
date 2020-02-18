@@ -12,12 +12,14 @@ $brand-footer: white;
 $brand-mega-menu-items: rgb(15, 12, 12);
 $brand-primary-lighter: #b6faca;
 $brand-whitish: #eee;
+$brand-custom: rgba(192, 191, 185, 0.945);
+$brand-custom1: rgb(207, 207, 206);
 $brand-select-bg: transparent;
 $brand-select-panel: white;
 $brand-select-hover: rgb(88, 88, 88);
 $brand-black: #000000;
 $brand-white: #f0f0f0;
-$brand-text-white: #eee;
+$brand-text-white: rgb(243, 241, 241);
 $brand-text-black: black;
 $brand-navbar2: rgb(46, 48, 49);
 $search-options-item: rgba(250, 182, 104, 0.568);
@@ -26,6 +28,10 @@ $btn-search: rgba(250, 140, 140, 0.87);
 $font-datePicker: 0.6rem;
 
 //BG CONFIG
+
+.bg-custom {
+  background: $brand-custom !important;
+}
 .bg-secondary {
   background-color: $brand-secondary !important;
 }
@@ -51,12 +57,21 @@ $font-datePicker: 0.6rem;
   font-size: 1.1rem !important;
 }
 
+.font1-2 {
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+
 .font2 {
   font-size: 0.9rem !important;
 }
 
 .font3 {
   font-size: 0.7rem !important;
+}
+
+font3-4 {
+  font-size: 6.5rem !important;
 }
 
 .font4 {
@@ -375,19 +390,32 @@ $font-datePicker: 0.6rem;
   justify-content: center;
   align-items: center;
   div {
-    height: 100%;
   }
+}
+.slick-list {
+  background: $brand-custom;
 }
 
 //ADVERTISMENT CARD
 .advertisment {
   position: relative;
-  height: 100%;
-  width: 8.6rem !important;
+  height: 15rem !important;
+  width: 10rem !important;
   text-align: center;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
+.card-flag {
+  position: absolute;
+  width: 40px;
+  top: 0px;
+  left: 0;
+  z-index: 100;
+  background: rgb(134, 233, 134);
+  color: white;
+  text-align: center;
+  transform: rotateZ(-30deg);
+}
 .line-through {
   text-decoration: line-through !important;
 }
@@ -409,7 +437,11 @@ $font-datePicker: 0.6rem;
 /* Do an horizontal flip when you move the mouse over the flip box container */
 
 /* Position the front and back side */
-
+.card-body {
+  background: #eee !important;
+  border: 0px solid black;
+  border-radius: 5px;
+}
 .flip-card-back {
   position: absolute;
   cursor: pointer;
@@ -423,11 +455,32 @@ $font-datePicker: 0.6rem;
 .flip-card-back {
   height: 100%;
   width: 100%;
-  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   color: black;
   transform: rotateY(180deg);
 }
+
+.flip-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+
+  background: #2c3e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3498db,
+    #68a0d894
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(52, 152, 219, 0.315),
+    #68a0d894
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 ///////////////////
 .section-contents {
   margin-top: 60px;
@@ -435,16 +488,6 @@ $font-datePicker: 0.6rem;
 
 .googleMap {
   height: 50vh !important;
-}
-
-.ad-img-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.1 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: -1 !important;
 }
 
 .ad-number {
@@ -648,16 +691,7 @@ ul.social-network li {
 }
 
 .sectionTitle {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-
-  .sectionTitleText {
-    padding-bottom: 0 !important;
-    text-align: center;
-  }
+  background: $brand-custom1;
 }
 
 //CUSTOM SELECT CLASS
@@ -777,7 +811,7 @@ ul.social-network li {
   width: 4rem !important;
 }
 
-//MAIN SIMCART SECTION
+//Section Title
 
 //ADVERTISERS SECTION
 

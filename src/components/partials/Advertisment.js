@@ -35,12 +35,13 @@ export default class Advertisment extends Component {
   render(props) {
     return (
       <div
-        className="card flip-card w-100 h-100 advertisment py-0 shadow position-relative bg-transparent"
+        className="card flip-card w-100 h-100 advertisment py-0 shadow position-relative bg-transparent position-relative"
         onClick={this.handleAdvertismentClick}
       >
-        <div className="card-body flip-card-front w-100 h-100 d-flex justify-content-center align-items-center flex-column p-1 ">
-          <div className="card-inner-width">
-            <h3 className="ad-number font3 text-center pt-0">
+        <div className="card-flag font3-4">فوری</div>
+        <div className="card-body flip-card-front w-100 h-100 mh-100 d-flex justify-content-between align-items-center flex-column p-1 ">
+          <div className="card-inner-width w-100">
+            <h3 className="ad-number font1-2 text-right pt-0">
               {persianJs(this.state.phoneNumber)
                 .englishNumber()
                 .toString()}
@@ -48,49 +49,44 @@ export default class Advertisment extends Component {
             <hr className="py-0 my-0" />
           </div>
           <div className="card-inner-width">
-            <h6 className="card-title font4 text-center  p-0  m-0 py-1">
+            <h6 className="card-title font3 text-center  p-0  m-0 py-1">
               {this.state.status} | {this.state.location}
             </h6>
-            <p className="card-text font4 text-center p-0 m-0">
+            <p className="card-text font2 text-center p-0 m-0">
               {persianJs(this.state.price)
                 .englishNumber()
                 .toString()}
               تومان
             </p>
             {this.state.sale ? (
-              <p className="card-text line-through font5 line text-center p-0 m-0 pb-1">
-                {this.state.price} تومان
+              <p className="card-text line-through font3 line text-center p-0 m-0 pb-1">
+                {persianJs(this.state.price)
+                  .englishNumber()
+                  .toString()}
+                تومان
               </p>
             ) : (
               ""
             )}
 
-            <div className="w-100 font4-5">{this.state.text}</div>
+            <div className="w-100 font3 ">{this.state.text}</div>
           </div>
-
-          <div className="card-inner-width">
+          <div className="mt-auto card-inner-width  mb-0">
             <hr className="my-1 " />
             <div className="m-0 p-0 d-flex justify-content-between align-items-end">
-              <span className="lead font5 h-100 float-left">4 ساعت قبل</span>
+              <span className="lead font3 h-100 float-left">4 ساعت قبل</span>
             </div>
           </div>
         </div>
         <div className="flip-card-back card d-flex justify-content-center align-items-center flex-column">
-          <div
-            className="ad-img-mask"
-            style={{
-              backgroundImage: "url(" + img + ")",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat"
-            }}
-          ></div>
-
           <div className="card-body w-100 h-100 d-flex justify-content-center align-items-center flex-column  ">
+            <div className="flip-card-background"></div>
             <h1 className="font1 text-center p-2">
-              {this.state.sellerPhoneNumber}
+              {persianJs("09127170126")
+                .englishNumber()
+                .toString()}
             </h1>
-            <p className="font2 text-center p-2">{this.state.sellerName}</p>
+            <p className="font2 text-center p-2">احمد روزبه</p>
           </div>
         </div>
       </div>

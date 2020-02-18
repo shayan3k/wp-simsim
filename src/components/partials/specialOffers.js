@@ -56,7 +56,7 @@ function SpecialOffers(props) {
   };
 
   const [posts, setPosts] = useState([]);
-  const baseUrl = "http://localhost/wordpress/wp-json/wp/v2";
+  const baseUrl = "http://localhost/wordpress/wp-json";
 
   useEffect(() => {
     axios
@@ -73,19 +73,19 @@ function SpecialOffers(props) {
     <>
       <Slider
         {...settings}
-        className="bg-secondary container specialOffersToggler"
+        className="container specialOffersToggler bg-custom "
       >
         {posts.map(item => (
-          <div className="p-3 h-100" key={item.acf.id}>
+          <div className="p-3 h-100" key={item.id}>
             <Advertisment
-              phoneNumber={item.acf.phonenumber}
-              status={item.acf.status}
-              location={item.acf.location}
-              price={item.acf.price}
-              text={item.acf.text}
-              sellerPhoneNumber={item.acf.sellerphonenumber}
-              sellerName={item.acf.sellername}
-              key={item.acf.id}
+              phoneNumber={item.phonenumber}
+              status={item.bodytext}
+              location={item.location}
+              price={item.price}
+              text={item.text}
+              sellerPhoneNumber={item.sellerphonenumber}
+              sellerName={item.sellername}
+              key={item.id}
               sale={props.sale}
             />
           </div>
