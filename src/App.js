@@ -52,11 +52,7 @@ function App() {
     <Route
       {...rest}
       render={props =>
-        islogedIn ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/wordpress/login" />
-        )
+        logedIn ? <Component {...props} /> : <Redirect to="/wordpress/login" />
       }
     />
   );
@@ -65,7 +61,7 @@ function App() {
     <Route
       {...rest}
       render={props =>
-        islogedIn ? <Component {...props} /> : <Redirect to="/wordpress/" />
+        !logedIn ? <Component {...props} /> : <Redirect to="/wordpress/" />
       }
     />
   );

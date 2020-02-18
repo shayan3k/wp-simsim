@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import Message from "./Message";
 import { JWTLogin, JWTLogout, JWTCheck } from "../services/Auth";
 
 function Login() {
@@ -69,7 +68,6 @@ function Login() {
   return (
     <>
       <form className="col-md-6  order-1 order-md-2">
-        <Message />
         <h3 className="my-4">ورود به سیستم</h3>
         <div className="input-group col-10 col-md-9 ml-auto p-0 my-3">
           <input

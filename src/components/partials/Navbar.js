@@ -7,33 +7,32 @@ import persianJs from "persianjs";
 
 const JalaliDateAndTime = () => {
   let m = moment();
-
   let today = new Date("January 1, 2008 11:10:00");
-
+  console.log(today.getDay());
   let dayOfWeek = () => {
     switch (today.getDay()) {
-      case 0:
+      case 1:
         return "دوشنبه";
         break;
 
-      case 1:
+      case 2:
         return "سه شنبه";
         break;
-      case 2:
+      case 3:
         return "چهارشنبه";
         break;
 
-      case 3:
+      case 4:
         return "پنجشنبه";
         break;
-      case 4:
+      case 5:
         return "جمعه";
         break;
 
-      case 5:
+      case 6:
         return "شنبه";
         break;
-      case 6:
+      case 7:
         return "یکشنبه";
         break;
     }
@@ -98,7 +97,7 @@ const JalaliDateAndTime = () => {
   let date =
     dayOfWeek() +
     " " +
-    persianJs(m.format("D"))
+    persianJs(m.jDate())
       .englishNumber()
       .toString() +
     " " +

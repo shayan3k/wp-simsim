@@ -90,14 +90,6 @@ export default function NewAdvertisment() {
       flag = true;
     }
 
-    // const [Selects, setSelects] = useState("");
-    // const [PhoneNumber, setPhoneNumber] = useState("");
-    // const [Location, setLocation] = useState("");
-    // const [Operator, setOperator] = useState("");
-    // const [Status, setStatus] = useState("");
-    // const [Price, setPrice] = useState("");
-    // const [Text, setText] = useState("");
-
     if (!flag) {
       Axios.post(
         baseUrl + "/wp/v2/myadvertisement",
