@@ -86,6 +86,13 @@ const store = createStore({
       state.status = payload.status;
       console.log(state.msg, state.status);
     })
+  },
+  searchBox: {
+    operator: "",
+    setOperator: action((state, payload) => {
+      state.msg = payload;
+      console.log(state.msg);
+    })
   }
 });
 

@@ -1,12 +1,36 @@
 import React, { useEffect } from "react";
-import img1 from "../images/sim.svg";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import customSelect from "custom-select";
 import "custom-select/build/custom-select.css";
 
 function SearchBox() {
+  const logedIn = useStoreState(state => state.auth.logedIn);
+  const setLogedIn = useStoreActions(actions => actions.auth.setLogedIn);
+
   useEffect(() => {
-    customSelect("select");
+    SelectConfig();
   }, []);
+
+  const SelectConfig = () => {
+    const Selects = customSelect("select");
+    setSelects(Selects);
+    Selects[0].select.addEventListener("change", e => {
+      handleOperatorOnChange(e);
+    });
+
+    // Selects[1].select.addEventListener("change", e => {
+    //   handleOperatorOnChange(e);
+    // });
+
+    // Selects[2].select.addEventListener("change", e => {
+    //   handleStatusOnChange(e);
+    // });
+  };
+
+  const handleOperatorOnChange = e => {
+    setPhoneNumber(e.target.value);
+    console.log(e.target.value);
+  };
 
   return (
     <div className="container mx-auto searchBox" id="searchBox">

@@ -2,122 +2,25 @@ import React, { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { TimelineLite, Power4 } from "gsap";
 import { Link } from "react-router-dom";
-import moment from "moment-jalaali";
 import persianJs from "persianjs";
-
-const JalaliDateAndTime = () => {
-  let m = moment();
-  let today = new Date("January 1, 2008 11:10:00");
-  console.log(today.getDay());
-  let dayOfWeek = () => {
-    switch (today.getDay()) {
-      case 1:
-        return "دوشنبه";
-        break;
-
-      case 2:
-        return "سه شنبه";
-        break;
-      case 3:
-        return "چهارشنبه";
-        break;
-
-      case 4:
-        return "پنجشنبه";
-        break;
-      case 5:
-        return "جمعه";
-        break;
-
-      case 6:
-        return "شنبه";
-        break;
-      case 7:
-        return "یکشنبه";
-        break;
-    }
-  };
-
-  let month = () => {
-    switch (m.jMonth()) {
-      case 0:
-        return "فروردین";
-        break;
-
-      case 1:
-        return "اردیبهشت";
-        break;
-
-      case 2:
-        return "خرداد";
-        break;
-
-      case 3:
-        return "تیر";
-        break;
-
-      case 4:
-        return "مرداد";
-        break;
-
-      case 5:
-        return "شهریور";
-        break;
-
-      case 6:
-        return "مهر";
-        break;
-
-      case 7:
-        return "آبان";
-        break;
-
-      case 8:
-        return "آذر";
-        break;
-
-      case 9:
-        return "دی";
-        break;
-
-      case 10:
-        return "بهمن";
-        break;
-
-      case 11:
-        return "اسفتد";
-        break;
-    }
-  };
-
-  let clock = persianJs(m.format("HH:mm"))
-    .englishNumber()
-    .toString();
-
-  let date =
-    dayOfWeek() +
-    " " +
-    persianJs(m.jDate())
-      .englishNumber()
-      .toString() +
-    " " +
-    month();
-
-  return date + " | " + clock;
-};
+import TimeAndDate from "./TimeAndDate";
+import Axios from "axios";
 
 function Navbar() {
-  const authToken = useStoreState(state => state.auth.token);
-  const userEmail = useStoreState(state => state.auth.userEmail);
-  const setAuth = useStoreActions(actions => actions.auth.setAuth);
-  const [counter, setCounter] = useState(-9999);
   const [menuTogglerAnimation, setMenuTogglerAnimation] = useState(
     new TimelineLite({ paused: true })
   );
+  const [Navbar, setNavbar] = useState([]);
+  const baseUrl = "http://localhost/wordpress/wp-json";
+
+  //Navbar useEffect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter(counter => counter + 1);
-    }, 1000);
+    Axios.get(baseUrl + "/menus/v1/menus/Navbar1")
+      .then(res => {
+        console.log(res.data.items);
+        setNavbar(res.data.items);
+      })
+      .catch(e => console.log(e.response));
 
     menuTogglerAnimation
       .to(".MenuOpenner", 0.3, {
@@ -143,20 +46,13 @@ function Navbar() {
     el2.style.width = 0;
     el2.style.width = 0;
     el2.style.visibility = "hidden";
-
-    return () => {
-      clearInterval(interval);
-    };
   }, []);
-
   const handleMenuOpenner = e => {
     menuTogglerAnimation.play();
   };
-
   const handleMenuCloser = e => {
     menuTogglerAnimation.reverse();
   };
-
   return (
     <nav className="container-fluid row px-0 w-100 myNavbar">
       <div className="container row px-0 mx-auto d-flex justify-content-between align-items-center">
@@ -166,7 +62,7 @@ function Navbar() {
               className="fa fa-calendar pr-3 c-white fa-2x"
               aria-hidden="true"
             ></i>
-            <JalaliDateAndTime style={{ display: "none" }} />
+            <TimeAndDate />
           </li>
         </ul>
         <ul className="navbar-ul d-flex d-md-none">
@@ -177,49 +73,21 @@ function Navbar() {
             <i className="fa fa-times fa-2x"></i>
           </li>
         </ul>
+
         <ul className="navbar-ul d-none d-md-flex ">
-          <li className="nav-item active ml-auto">
-            <Link className="nav-link font3" to="/wordpress/contact-us">
-              تماس با ما
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="/#">
-              تبلیغات
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="/wordpress/faq">
-              سوالات متداول
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="/wordpress/guide">
-              راهنما
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="#">
-              فروش سیمکارت
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="#">
-              خرید سیمکارت
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link font3" to="/wordpress/">
-              خانه
-            </Link>
-          </li>
+          {Navbar.map(item => {
+            let link = "/wordpress" + item.url;
+            let postTitle = item.post_title;
+            return (
+              <li className="nav-item">
+                <Link className="nav-link font3" to={link}>
+                  {postTitle}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
+
         <ul className="w-100 mobile-menu">
           <Link className="mobile-menu-item">
             <span>خانه</span>

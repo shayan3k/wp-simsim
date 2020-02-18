@@ -25,8 +25,8 @@ export default class Shop extends Component {
         <Logo />
         <Seperator />
         <MegaMenu />
-        <SectionTitle title="فروشهای فوری" collapse="specialOffersToggler" />
-        <SpecialOffers uri="/myadvertisement" sale={true} />
+        {/* <SectionTitle title="فروشهای فوری" collapse="specialOffersToggler" />
+        <SpecialOffers uri="/myadvertisement" sale={true} /> */}
         <SectionTitle title="جستجو" collapse="searchBox" />
         <SearchBox />
         <SectionTitle title="سیم کارت یافت شده" collapse="mainAdsToggler" />
