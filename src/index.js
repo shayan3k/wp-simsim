@@ -90,6 +90,11 @@ const store = createStore({
   searchBox: {
     operator: "",
     status: "",
+    value: "",
+    rond: "",
+    code: "",
+    location: "",
+    priceRange: "",
     setOperator: action((state, payload) => {
       state.operator = payload;
       console.log(state.operator);
@@ -97,6 +102,26 @@ const store = createStore({
     setStatus: action((state, payload) => {
       state.status = payload;
       console.log(state.status);
+    }),
+    setValue: action((state, payload) => {
+      state.value = payload;
+      console.log(state.value);
+    }),
+    setRond: action((state, payload) => {
+      state.rond = payload;
+      console.log(state.rond);
+    }),
+    setCode: action((state, payload) => {
+      state.code = payload;
+      console.log(state.code);
+    }),
+    setLocation: action((state, payload) => {
+      state.location = payload;
+      console.log(state.location);
+    }),
+    setPriceRange: action((state, payload) => {
+      state.priceRange = payload;
+      console.log(state.priceRange);
     })
   }
 });

@@ -31,7 +31,7 @@ export default class Shop extends Component {
         <SearchBox />
         <SectionTitle title="سیم کارت یافت شده" collapse="mainAdsToggler" />
         <MainAds uri="/custom-routes/v1/advertisments" />
-        <Ad2 />
+        {/* <Ad2 />
         <SectionTitle title="پیشنهادهای هفته" collapse="SpecialOffersWrapepr" />
         <div className="SpecialOffersWrapepr">
           <SpecialOffers uri="/custom-routes/v1/advertisments" sale={false} />
@@ -48,7 +48,7 @@ export default class Shop extends Component {
         />
         <Advertisers />
         <Seperator />
-        <Footer />
+        <Footer /> */}
       </>
     );
   }

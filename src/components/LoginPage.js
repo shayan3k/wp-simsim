@@ -15,10 +15,6 @@ import Footer from "./partials/Footer";
 function LoginPage() {
   const setGoogleToken = useStoreActions(actions => actions.google.setToken);
 
-  const setToken = token => {
-    setGoogleToken(token);
-  };
-
   return (
     <>
       <Navbar />
@@ -31,7 +27,7 @@ function LoginPage() {
             reCaptchaKey="6LcltNQUAAAAALPMWwtFpvTr4zV46E-pn2k9QzNG"
             language="fa"
           >
-            <GoogleReCaptcha onVerify={token => setToken(token)} />
+            <GoogleReCaptcha onVerify={token => setGoogleToken(token)} />
             <SignUp />
             <Login />
           </GoogleReCaptchaProvider>

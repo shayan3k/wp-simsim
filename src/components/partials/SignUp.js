@@ -9,6 +9,7 @@ const validateEmail = email => {
 
 function SignUp() {
   //  More Persistant States
+  const googleToken = useStoreState(state => state.google.token);
   const setError = useStoreActions(actions => actions.message.setError);
 
   //Local States
@@ -16,6 +17,7 @@ function SignUp() {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [CheckBox, setCheckBox] = useState("");
   const [VerifyPassword, setVerifyPassword] = useState("");
   const baseUrl = "http://localhost/wordpress/wp-json";
 
@@ -25,63 +27,89 @@ function SignUp() {
     setName("");
     setEmail("");
     setPassword("");
+    setCheckBox("");
     setVerifyPassword("");
   };
 
+  const disableSignUpBtn = () =>
+    (document.getElementById("submitBtn").style.cssText =
+      "opacity: .3;pointer - events : none;");
+  const enableSignUpBtn = () =>
+    (document.getElementById("submitBtn").style.cssText =
+      "opacity: 1;pointer - events : none;");
+
   const handleSubmitButton = e => {
     e.preventDefault();
-    console.log(PhoneNumber, Name, Email, Password, VerifyPassword);
+    disableSignUpBtn();
 
-    let flag = false;
-    let msg = "";
+    if (!(googleToken.length == 0)) {
+      let flag = false;
+      let msg = "";
 
-    console.log(PhoneNumber.slice(0, 2));
-    if (PhoneNumber.length !== 11 || PhoneNumber.slice(0, 2) !== "09") {
-      msg += "<li>شماره اشتباه</li>";
-      flag = true;
-    }
-    if (!validateEmail(Email)) {
-      msg += "<li>ایمیل اشتب است</li>";
-      flag = true;
-    }
+      console.log(PhoneNumber.slice(0, 2));
+      if (PhoneNumber.length !== 11 || PhoneNumber.slice(0, 2) !== "09") {
+        msg += "<li>شماره اشتباه</li>";
+        flag = true;
+      }
+      if (!validateEmail(Email)) {
+        msg += "<li>ایمیل اشتب است</li>";
+        flag = true;
+      }
 
-    if (!Name) {
-      msg += "<li>نام اشنباس</li>";
-      flag = true;
-    }
+      if (!Name) {
+        msg += "<li>نام اشنباس</li>";
+        flag = true;
+      }
 
-    if (Password !== VerifyPassword) {
-      msg += "<li>رمز مغایر است</li>";
-      flag = true;
-    }
+      if (Password !== VerifyPassword) {
+        msg += "<li>رمز مغایر است</li>";
+        flag = true;
+      }
 
-    if (Password.length < 8) {
-      msg += "<li>پسورد حداقل 8 کرکتر الاغ</li>";
-      flag = true;
-    }
+      if (Password.length < 8) {
+        msg += "<li>پسورد حداقل 8 کرکتر الاغ</li>";
+        flag = true;
+      }
 
-    if (!flag) {
-      Axios.post(baseUrl + "/wp/v2/users/register", {
-        username: PhoneNumber,
-        name: Name,
-        email: Email,
-        password: Password
-      })
-        .then(e => {
-          console.log(e);
-          setError({
-            msg: "موفق. حالا وارد شو",
-            status: "success"
-          });
-          handleResetfields();
+      if (!CheckBox) {
+        msg += "<li>تیک قوانین نزدی</li>";
+        flag = true;
+      }
+
+      if (!flag) {
+        Axios.post(baseUrl + "/wp/v2/users/register", {
+          username: PhoneNumber,
+          name: Name,
+          email: Email,
+          password: Password
         })
+          .then(e => {
+            console.log(e);
+            setError({
+              msg: "موفق. حالا وارد شو",
+              status: "success"
+            });
+            handleResetfields();
+            enableSignUpBtn();
+          })
 
-        .catch(e => console.log(e.response));
+          .catch(e => {
+            setError({
+              msg: e.response.data.message,
+              status: "danger"
+            });
+            enableSignUpBtn();
+          });
+      } else {
+        setError({
+          msg,
+          status: "danger"
+        });
+        enableSignUpBtn();
+      }
     } else {
-      setError({
-        msg,
-        status: "danger"
-      });
+      setError({ msg: "Recaptcha error", status: "danger" });
+      enableSignUpBtn();
     }
   };
 
@@ -147,7 +175,24 @@ function SignUp() {
             onChange={e => setVerifyPassword(e.target.value)}
           />
         </div>
-        <button className="btn btn-primary btn-lg my-3" type="submit">
+
+        <div class="form-check row m-0 p-0 ">
+          <label class="col-11 form-check-label font2" for="checkBox">
+            قوانین مطالعه کردم
+          </label>
+          <input
+            type="checkbox"
+            class="col-1 form-check-input"
+            id="checkBox"
+            onChange={e => setCheckBox(event.target.checked)}
+          />
+        </div>
+
+        <button
+          className="btn btn-primary btn-lg my-3 "
+          id="submitBtn"
+          type="submit"
+        >
           ثبت نام
         </button>
       </form>

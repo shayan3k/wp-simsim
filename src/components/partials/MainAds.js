@@ -9,6 +9,12 @@ function MainAds(props) {
   const [posts, setPosts] = useState([]);
   const SimOperator = useStoreState(state => state.searchBox.operator);
   const SimStatus = useStoreState(state => state.searchBox.status);
+  const SimValue = useStoreState(state => state.searchBox.operator);
+  const SimRond = useStoreState(state => state.searchBox.status);
+  const SimCode = useStoreState(state => state.searchBox.status);
+  const SimLocation = useStoreState(state => state.searchBox.operator);
+  const SimPriceRange = useStoreState(state => state.searchBox.status);
+
   const baseUrl = "http://localhost/wordpress/wp-json";
 
   useEffect(() => {
@@ -19,7 +25,7 @@ function MainAds(props) {
         console.log(response.data);
       })
       .catch(error => {
-        console.log(error.response);
+        console.log(error.response.data.message);
       });
   }, []);
 
@@ -30,6 +36,7 @@ function MainAds(props) {
           if (SimStatus != "" && SimStatus !== item.bodytext) {
             return;
           }
+
           console.log(SimStatus, item.bodytext);
           return (
             <div
