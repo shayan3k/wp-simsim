@@ -14,6 +14,9 @@ $brand-primary-lighter: #b6faca;
 $brand-whitish: #eee;
 $brand-custom: rgba(192, 191, 185, 0.945);
 $brand-custom1: rgb(207, 207, 206);
+$brand-card-rond: rgba(255, 0, 0, 0.87);
+$brand-advertisers: rgb(236, 246, 250);
+$brand-vip-advertisers: rgb(250, 241, 164);
 $brand-select-bg: transparent;
 $brand-select-panel: white;
 $brand-select-hover: rgb(88, 88, 88);
@@ -22,13 +25,33 @@ $brand-white: #f0f0f0;
 $brand-text-white: rgb(243, 241, 241);
 $brand-text-black: black;
 $brand-navbar2: rgb(46, 48, 49);
-$search-options-item: rgba(250, 182, 104, 0.568);
+$search-options-item: rgba(250, 182, 104, 0.534);
 $btn-search-option: rgba(41, 88, 160, 0.767);
 $btn-search: rgba(250, 140, 140, 0.87);
 $font-datePicker: 0.6rem;
 
 //BG CONFIG
 
+.bg-vip-advertisers-sim {
+  background: rgba(255, 229, 159, 0.842);
+  font-weight: 700;
+}
+
+.bg-vip-advertisers-sim-owner {
+  background: rgba(255, 108, 10, 0.829);
+  font-weight: 700;
+}
+.bg-advertisers-sim {
+  background: rgba(0, 24, 158, 0.185);
+  font-weight: 700;
+}
+
+.bg-advertisers-sim-owner {
+  background: rgb(255, 139, 110);
+}
+.bg-advertisers {
+  background: $brand-advertisers !important;
+}
 .bg-custom {
   background: $brand-custom !important;
 }
@@ -65,7 +88,9 @@ $font-datePicker: 0.6rem;
 .font2 {
   font-size: 0.9rem !important;
 }
-
+.font2-3 {
+  font-size: 0.8rem !important;
+}
 .font3 {
   font-size: 0.7rem !important;
 }
@@ -416,6 +441,21 @@ font3-4 {
   text-align: center;
   transform: rotateZ(-30deg);
 }
+
+.card-crown {
+  position: absolute;
+  width: 40px;
+  top: -9px;
+  left: 3px;
+  z-index: 100;
+  text-align: center;
+}
+.card-rond {
+  background: $brand-card-rond;
+  padding: 0rem 0.6rem;
+  color: white;
+  border-radius: 7px;
+}
 .line-through {
   text-decoration: line-through !important;
 }
@@ -441,6 +481,33 @@ font3-4 {
   background: #eee !important;
   border: 0px solid black;
   border-radius: 5px;
+}
+
+.card-body-vip-advertiser {
+  background: $brand-vip-advertisers !important;
+}
+
+.card-header-vip-advertiser {
+  background: rgba(255, 108, 10, 0.829) !important  ;
+}
+
+.card-body-advertiser {
+  background: $brand-advertisers !important;
+}
+
+.advertiser-flag-icon {
+  position: absolute;
+  top: -5 px;
+  left: -5px;
+  width: 40px;
+  height: 40px;
+}
+.advertiser-vip-flag-icon {
+  position: absolute;
+  top: 15 px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
 }
 .flip-card-back {
   position: absolute;

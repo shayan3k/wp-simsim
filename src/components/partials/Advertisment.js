@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { TweenMax, TimelineMax, CSSPlugin, Power4 } from "gsap";
 import persianJs from "persianjs";
-import img from "../images/hamrah.jpg";
+import GoldCrown from "../images/gold.png";
+import SilverCrown from "../images/silver.png";
+import BronzCrown from "../images/bronz.png";
 
 export default class Advertisment extends Component {
   constructor(props) {
     super(props);
     this.handleAdvertismentClick = this.handleAdvertismentClick.bind(this);
+    this.flagRender = this.flagRender.bind(this);
     this.state = {
       toggle: false,
       phoneNumber: props.phoneNumber,
@@ -16,7 +19,9 @@ export default class Advertisment extends Component {
       text: props.text,
       sellerPhoneNumber: props.sellerPhoneNumber,
       sellerName: props.sellerName,
-      sale: props.sale
+      sale: props.sale,
+      flag: "bronz",
+      rond: "rond"
     };
   }
 
@@ -32,13 +37,72 @@ export default class Advertisment extends Component {
     this.setState({ toggle: !this.state.toggle });
   };
 
+  flagRender = () => {
+    if (this.state.flag === "urgent")
+      return <div className="card-flag font3-4">فوری</div>;
+    else if (this.state.flag === "diamond")
+      return (
+        <div className="card-crown font3-4">
+          <i class="fa fa-diamond" aria-hidden="true"></i>
+        </div>
+      );
+    else if (this.state.flag === "gold")
+      return (
+        <div className="card-crown font3-4">
+          <img className="w-100 h-100" src={GoldCrown} alt="GoldCrown" />
+        </div>
+      );
+    else if (this.state.flag === "silver")
+      return (
+        <div className="card-crown font3-4">
+          <img className="w-100 h-100" src={SilverCrown} alt="SilverCrown" />
+        </div>
+      );
+    else if (this.state.flag === "bronz")
+      return (
+        <div className="card-crown font3-4">
+          <img className="w-100 h-100" src={BronzCrown} alt="crown" />
+        </div>
+      );
+    else {
+      return <div className="card-flag font3-4">Not found</div>;
+    }
+  };
+
+  rondRender = () => {
+    if (this.state.flag === "urgent")
+      return <div className="card-flag font3-4">فوری</div>;
+    else if (this.state.flag === "gold")
+      return (
+        <div className="card-crown font3-4">
+          <img className="w-100 h-100" src={GoldCrown} alt="GoldCrown" />
+        </div>
+      );
+    else if (this.state.flag === "silver")
+      return (
+        <div className="card-flag font3-4">
+          <img className="w-100 h-100" src={SilverCrown} alt="SilverCrown" />
+        </div>
+      );
+    else if (this.state.flag === "bronz")
+      return (
+        <div className="card-flag font3-4">
+          <img src="BronzCrown" img={BronzCrown} />
+        </div>
+      );
+    else {
+      return <div className="card-flag font3-4">Not found</div>;
+    }
+  };
+
   render(props) {
     return (
       <div
         className="card flip-card w-100 h-100 advertisment py-0 shadow position-relative bg-transparent position-relative"
         onClick={this.handleAdvertismentClick}
       >
-        <div className="card-flag font3-4">فوری</div>
+        {this.flagRender()}
+
         <div className="card-body flip-card-front w-100 h-100 mh-100 d-flex justify-content-between align-items-center flex-column p-1 ">
           <div className="card-inner-width w-100">
             <h3 className="ad-number font1-2 text-right pt-0">
@@ -74,7 +138,8 @@ export default class Advertisment extends Component {
           <div className="mt-auto card-inner-width  mb-0">
             <hr className="my-1 " />
             <div className="m-0 p-0 d-flex justify-content-between align-items-end">
-              <span className="lead font3 h-100 float-left">4 ساعت قبل</span>
+              <span className="lead font3 h-100">4 ساعت قبل</span>
+              <span className="card-rond font2 h-100">رند</span>
             </div>
           </div>
         </div>
