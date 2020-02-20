@@ -14,6 +14,7 @@ import Advertisers from "./partials/Advertisers";
 import SpecialOffers from "./partials/specialOffers";
 import ShopAccordition from "./partials/ShopAccordition.js";
 import SectionTitle from "./partials/SectionTitle";
+import FooterSeperator from './partials/FooterSeperator'
 import Logo from "./partials/Logo";
 import Seperator from "./partials/Seperator";
 
@@ -26,29 +27,30 @@ export default class Shop extends Component {
         <Seperator />
         <MegaMenu />
         <SectionTitle title="فروشهای فوری" collapse="specialOffersToggler" />
-        <SpecialOffers uri="/custom-routes/v1/advertisments" sale={true} />
-        {/* <SectionTitle title="جستجو" collapse="searchBox" />
+        <SpecialOffers uri="/custom-routes/v1/advertisments" sale={true} flagController='فوری'/>
+        <SectionTitle title="جستجو" collapse="searchBox" />
         <SearchBox />
         <SectionTitle title="سیم کارت یافت شده" collapse="mainAdsToggler" />
-        <MainAds uri="/custom-routes/v1/advertisments" /> */}
-        {/* <Ad2 />
+        <MainAds uri="/custom-routes/v1/advertisments" />
+        <Ad2 />
         <SectionTitle title="پیشنهادهای هفته" collapse="SpecialOffersWrapepr" />
         <div className="SpecialOffersWrapepr">
-          <SpecialOffers uri="/custom-routes/v1/advertisments" sale={false} />
+          <SpecialOffers uri="/custom-routes/v1/advertisments" sale={false} flagController='طلایی'/>
           <SpecialOffers
             ltr={true}
             uri="/custom-routes/v1/advertisments"
             sale={false}
+            flagController='نقره ای'
           />
-          <SpecialOffers uri="/custom-routes/v1/advertisments" sale={false} />
+          <SpecialOffers uri="/custom-routes/v1/advertisments" sale={false} flagController='برنز'/>
         </div>
         <SectionTitle
           title="فروشندگان برتر هفته"
           collapse="AdvertisersToggler"
         />
         <Advertisers />
-        <Seperator />
-        <Footer /> */}
+        <FooterSeperator />
+        <Footer />
       </>
     );
   }

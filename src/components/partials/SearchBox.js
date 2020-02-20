@@ -5,7 +5,6 @@ import "custom-select/build/custom-select.css";
 
 function SearchBox() {
   const [Selects, setSelects] = useState("");
-  const setOperator = useStoreActions(actions => actions.searchBox.setOperator);
   const setStatus = useStoreActions(actions => actions.searchBox.setStatus);
   const setValue = useStoreActions(actions => actions.searchBox.setValue);
   const setRond = useStoreActions(actions => actions.searchBox.setRond);
@@ -36,18 +35,14 @@ function SearchBox() {
     });
 
     Selects[3].select.addEventListener("change", e => {
-      setOperator(e.target.value);
-    });
-
-    Selects[4].select.addEventListener("change", e => {
       setStatus(e.target.value);
     });
 
-    Selects[5].select.addEventListener("change", e => {
+    Selects[4].select.addEventListener("change", e => {
       setValue(e.target.value);
     });
 
-    Selects[6].select.addEventListener("change", e => {
+    Selects[5].select.addEventListener("change", e => {
       setRond(e.target.value);
     });
   };
@@ -58,8 +53,6 @@ function SearchBox() {
     Selects[3].value = "";
     Selects[4].value = "";
     Selects[5].value = "";
-    Selects[6].value = "";
-    setOperator("");
     setStatus("");
     setValue("");
     set("");
@@ -191,25 +184,11 @@ function SearchBox() {
                     <option value="0">تا یک میلیون تومان</option>
                     <option value="1">تا ده میلیون تومان</option>
                     <option value="2">تا نود میلیون تومان</option>
+                    <option value="3">از نود میلیون تومان به بالا</option>
                   </select>
                 </div>
               </div>
               <div className="col-6 py-3">
-                <div className="input-group-custom font3 mb-1">
-                  <div className="input-group-prepend custom-select-prepand d-flex justify-content-center align-items-center p-1 pl-3">
-                    <span>
-                      <i className="fas fa-caret-down fa-1x"></i>
-                    </span>
-                  </div>
-                  <select className="select-custom w-100" id="Operator">
-                    <option defaultValue value="">
-                      اپراتور
-                    </option>
-                    <option value="همراه اول">همراه اول</option>
-                    <option value="ایرانسل">ایرانسل</option>
-                    <option value="رایتل">رایتل</option>
-                  </select>
-                </div>
                 <div className="input-group-custom font3 mb-1">
                   <div className="input-group-prepend custom-select-prepand d-flex justify-content-center align-items-center p-1 pl-3">
                     <span>
@@ -236,9 +215,9 @@ function SearchBox() {
                     <option defaultValue value="">
                       ارزشمندی
                     </option>
-                    <option value="رند">طلایی</option>
-                    <option value="نیمه صفر">نقره ای</option>
-                    <option value="معمولی">برنز</option>
+                    <option value="طلایی">طلایی</option>
+                    <option value="نقره ای">نقره ای</option>
+                    <option value="برنز">برنز</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">

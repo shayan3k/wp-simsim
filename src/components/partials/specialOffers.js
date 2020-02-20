@@ -66,7 +66,7 @@ function SpecialOffers(props) {
         console.log(response.data);
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.response);
       });
   }, []);
   console.log(posts);
@@ -77,7 +77,16 @@ function SpecialOffers(props) {
         {...settings}
         className="container specialOffersToggler bg-custom "
       >
-        {posts.map(item => (
+        {
+        posts.map(item => {
+          let flag = false;
+          if(props.flagController==='فوری' && item.sale === 'فوری') flag = true;
+          else if(props.flagController==='طلایی' && item.sale === '' && item.value==='طلایی') flag = true;
+          else if(props.flagController==='نقره ای' && item.sale === '' && item.value==='نقره ای') flag = true;
+          else if(props.flagController==='برنز' && item.sale === '' && item.value==='برنز') flag = true;
+      
+      if(flag === true)
+       return(
           <div className="p-3 h-100" key={item.id}>
             <Advertisment
               phoneNumber={item.phonenumber}
@@ -96,7 +105,7 @@ function SpecialOffers(props) {
               secondPrice={item.secondprice}
             />
           </div>
-        ))}
+        )})}
       </Slider>
     </>
   );

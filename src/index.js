@@ -88,17 +88,13 @@ const store = createStore({
     })
   },
   searchBox: {
-    operator: "",
     status: "",
     value: "",
     rond: "",
     code: "",
     location: "",
     priceRange: "",
-    setOperator: action((state, payload) => {
-      state.operator = payload;
-      console.log(state.operator);
-    }),
+
     setStatus: action((state, payload) => {
       state.status = payload;
       console.log(state.status);

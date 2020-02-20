@@ -126,7 +126,7 @@ export default function NewAdvertisment() {
       flag = true;
     }
 
-    if (isNaN(parseInt(Price)) || parseInt(Price) < 1000) {
+    if (isNaN(parseInt(Price)) || parseInt(Price) < 1) {
       msg += "<li>قیمت اشتباه</li>";
       flag = true;
     }
@@ -149,7 +149,7 @@ export default function NewAdvertisment() {
             phonenumber: PhoneNumber,
             operator: "همراه اول",
             code: Code,
-            value: Value,
+            value: Sale ? "" : Value,
             rond: Rond,
             location: Location,
             simstatus: SimStatus,
