@@ -117,7 +117,9 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100">
-                    <option defaultValue>کد سیمکارت</option>
+                    <option defaultValue value="">
+                      کد سیمکارت
+                    </option>
                     <option value="0">0 کد</option>
                     <option value="1">1 کد</option>
                     <option value="2">2 کد</option>
@@ -183,7 +185,9 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100">
-                    <option defaultValue>بازه قیمتی</option>
+                    <option defaultValue value="">
+                      بازه قیمتی
+                    </option>
                     <option value="0">تا یک میلیون تومان</option>
                     <option value="1">تا ده میلیون تومان</option>
                     <option value="2">تا نود میلیون تومان</option>
@@ -198,7 +202,9 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100" id="Operator">
-                    <option defaultValue>اپراتور</option>
+                    <option defaultValue value="">
+                      اپراتور
+                    </option>
                     <option value="همراه اول">همراه اول</option>
                     <option value="ایرانسل">ایرانسل</option>
                     <option value="رایتل">رایتل</option>
@@ -211,7 +217,9 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100">
-                    <option defaultValue>وضعیت</option>
+                    <option defaultValue value="">
+                      وضعیت
+                    </option>
                     <option value="صفر">صفر</option>
                     <option value="تقریبا صفر">تقریبا صفر</option>
                     <option value="کارکرده">کارکرده</option>
@@ -225,7 +233,9 @@ function SearchBox() {
                   </div>
 
                   <select className="select-custom w-100">
-                    <option defaultValue>ارزشمندی</option>
+                    <option defaultValue value="">
+                      ارزشمندی
+                    </option>
                     <option value="رند">طلایی</option>
                     <option value="نیمه صفر">نقره ای</option>
                     <option value="معمولی">برنز</option>
@@ -238,7 +248,9 @@ function SearchBox() {
                     </span>
                   </div>
                   <select className="select-custom w-100 bg-dark">
-                    <option defaultValue>نوع رند</option>
+                    <option defaultValue value="">
+                      نوع رند
+                    </option>
                     <option value="رند">رند</option>
                     <option value="نیمه رند">نیمه رند</option>
                     <option value="معمولی">معمولی</option>

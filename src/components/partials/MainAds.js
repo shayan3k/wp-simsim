@@ -22,10 +22,9 @@ function MainAds(props) {
       .get(baseUrl + props.uri)
       .then(response => {
         setPosts(response.data);
-        console.log(response.data);
       })
-      .catch(error => {
-        console.log(error.response.data.message);
+      .catch(err => {
+        console.log(err.response);
       });
   }, []);
 

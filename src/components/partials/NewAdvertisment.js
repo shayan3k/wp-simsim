@@ -20,10 +20,15 @@ export default function NewAdvertisment() {
   //Local States
   const [Selects, setSelects] = useState("");
   const [PhoneNumber, setPhoneNumber] = useState("");
-  const [Location, setLocation] = useState("");
   const [Operator, setOperator] = useState("");
-  const [Status, setStatus] = useState("");
+  const [Code, setCode] = useState("");
+  const [Value, setValue] = useState("");
+  const [Rond, setRond] = useState("");
+  const [Location, setLocation] = useState("");
+  const [SimStatus, setSimStatus] = useState("");
   const [Price, setPrice] = useState("");
+  const [Sale, setSale] = useState("");
+  const [SecondPrice, setSecondPrice] = useState("");
   const [Text, setText] = useState("");
   const baseUrl = "http://localhost/wordpress/wp-json";
 
@@ -35,7 +40,7 @@ export default function NewAdvertisment() {
     });
 
     Selects[1].select.addEventListener("change", e => {
-      handleOperatorOnChange(e);
+      handleRondOnChange(e);
     });
 
     Selects[2].select.addEventListener("change", e => {
@@ -44,33 +49,54 @@ export default function NewAdvertisment() {
   };
 
   const handlePhoneNumberOnChange = e => {
-    setPhoneNumber(e.target.value);
-    console.log(e.target.value);
-  };
+    // var data = e.target.value
+    //   .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "")
+    //   .trim();
 
+    var data = e.target.value.replace(/[^0-9]+/g, "");
+    setPhoneNumber(data);
+    if (data.length === 11 && data.slice(0, 4) === "0912") {
+      setCode(data.slice(4, 5));
+    } else setCode("");
+  };
   const handleLocationOnChange = e => {
     setLocation(e.target.value);
     console.log(e.target.value);
   };
-
-  const handleOperatorOnChange = e => {
-    setOperator(e.target.value);
+  const handleRondOnChange = e => {
+    setRond(e.target.value);
     console.log(e.target.value);
   };
-
   const handleStatusOnChange = e => {
-    setStatus(e.target.value);
+    setSimStatus(e.target.value);
     console.log(e.target.value);
   };
-
   const handlePriceOnChange = e => {
-    setPrice(e.target.value);
+    var data = e.target.value.replace(/[^0-9]+/g, "");
+    setPrice(data);
+
+    //get value
+    if (parseInt(data) > 90000) {
+      setValue("طلایی");
+    } else if (parseInt(data) > 10000) {
+      setValue("نقره ای");
+    } else {
+      setValue("برنز");
+    }
+
+    console.log(data);
+  };
+  const handleSecondPriceOnChange = e => {
+    var data = e.target.value.replace(/[^0-9]+/g, "");
+    setSecondPrice(data);
+
     console.log(e.target.value);
   };
-
   const handleTextOnChange = e => {
-    setText(e.target.value);
-    console.log(e.target.value);
+    var data = e.target.value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>]/, "");
+
+    setText(data);
+    console.log(data);
   };
 
   const handleFormSubmition = e => {
@@ -78,15 +104,40 @@ export default function NewAdvertisment() {
     let flag = false;
     let msg = "";
 
-    console.log(PhoneNumber, Location, Operator, Status, Price, Text);
+    console.log(PhoneNumber, Location, Operator, SimStatus, Price, Text);
 
     console.log(PhoneNumber.slice(0, 2));
-    if (PhoneNumber.length !== 11 || PhoneNumber.slice(0, 2) !== "09") {
+    if (PhoneNumber.length !== 11 || PhoneNumber.slice(0, 4) !== "0912") {
       msg += "<li>شماره اشتباه</li>";
       flag = true;
     }
+    if (!Rond.length) {
+      msg += "<li>نوع روند را انتخاب کنید</li>";
+      flag = true;
+    }
+
+    if (!Location.length) {
+      msg += "<li>استان را انتخاب کنید</li>";
+      flag = true;
+    }
+
+    if (!SimStatus.length) {
+      msg += "<li>وضعیت سیم را انتخاب کنید</li>";
+      flag = true;
+    }
+
     if (isNaN(parseInt(Price)) || parseInt(Price) < 1000) {
       msg += "<li>قیمت اشتباه</li>";
+      flag = true;
+    }
+
+    if (Sale && !SecondPrice.length) {
+      msg += "<li>قیمت دوم خالی است</li>";
+      flag = true;
+    }
+
+    if (Sale && SecondPrice >= Price) {
+      msg += "<li>قیمت دوم کمتر باید باشه</li>";
       flag = true;
     }
 
@@ -96,12 +147,17 @@ export default function NewAdvertisment() {
         {
           fields: {
             phonenumber: PhoneNumber,
+            operator: "همراه اول",
+            code: Code,
+            value: Value,
+            rond: Rond,
             location: Location,
-            status: Status,
-            text: Text,
+            simstatus: SimStatus,
+            text: Text.trim(),
             price: Price * 1000,
-            sellerphonenumber: "",
-            sellername: ""
+            sale: Sale ? "فوری" : "",
+            secondprice: Sale ? SecondPrice * 1000 : 0,
+            modifed: new Date().toISOString()
           }
         },
         JWTHeader()
@@ -115,7 +171,13 @@ export default function NewAdvertisment() {
           });
         })
 
-        .catch(e => console.log(e.response));
+        .catch(e => {
+          console.log(e.response.data.message);
+          setError({
+            msg: e.response.data.message,
+            status: "danger"
+          });
+        });
     } else {
       setError({
         msg,
@@ -129,7 +191,12 @@ export default function NewAdvertisment() {
     Selects[1].value = "";
     Selects[2].value = "";
     setPhoneNumber("");
-    setStatus("");
+    setOperator("");
+    setLocation("");
+    setCode("");
+    setValue("");
+    setRond("");
+    setSimStatus("");
     setPrice("");
     setText("");
 
@@ -182,13 +249,19 @@ export default function NewAdvertisment() {
               <div className="col-12 col-md-5 order-md-2 py-3">
                 <div className="input-group">
                   <input
-                    type="number"
+                    type="string"
                     className="form-control"
                     placeholder="شماره تلفن خط فروشی"
                     value={PhoneNumber}
+                    maxlength="11"
                     onChange={handlePhoneNumberOnChange}
                   />
                 </div>
+                {Code ? (
+                  <div className="lead font3 c-light-red">کد {Code}</div>
+                ) : (
+                  ""
+                )}
 
                 <div className="input-group-custom font3 mb-1">
                   <div className="input-group-prepend custom-select-prepand d-flex justify-content-center align-items-center p-1 pl-3">
@@ -197,18 +270,44 @@ export default function NewAdvertisment() {
                     </span>
                   </div>
 
-                  <select
-                    className="select-custom w-100"
-                    id="Location"
-                    defaultValue={Location}
-                  >
+                  <select className="select-custom w-100" id="Location">
                     <option value="" defaultValue>
                       استان
                     </option>
+                    <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                    <option value="آذربایجان غربی">آذربایجان غربی</option>
+                    <option value="اردبیل">اردبیل</option>
+                    <option value="اصفهان">اصفهان</option>
+                    <option value="البرز">البرز</option>
+                    <option value="ایلام">ایلام</option>
+                    <option value="بوشهر">بوشهر</option>
                     <option value="تهران">تهران</option>
-                    <option value="کرج">کرج</option>
-                    <option value="شهرمرد">شهرمرد</option>
-                    <option value="تبریز">تبریز</option>
+                    <option value="چهارمحال و بختیاری">
+                      چهارمحال و بختیاری
+                    </option>
+                    <option value="خراسان جنوبی">خراسان جنوبی</option>
+                    <option value="خراسان رضوی">خراسان رضوی</option>
+                    <option value="خراسان شمالی">خراسان شمالی</option>
+                    <option value="خوزستان">خوزستان</option>
+                    <option value="زنجان">زنجان</option>
+                    <option value="سمنان">سمنان</option>
+                    <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+                    <option value="فارس">فارس</option>
+                    <option value="قزوین">قزوین</option>
+                    <option value="قم">قم</option>
+                    <option value="کردستان">کردستان</option>
+                    <option value="کرمانشاه">کرمانشاه</option>
+                    <option value="کهگیلویه و بویراحمد">
+                      کهگیلویه و بویراحمد
+                    </option>
+                    <option value="گلستان">گلستان</option>
+                    <option value="گیلان">گیلان</option>
+                    <option value="لرستان">لرستان</option>
+                    <option value="مازندران">مازندران</option>
+                    <option value="مرکزی">مرکزی</option>
+                    <option value="هرمزگان">هرمزگان</option>
+                    <option value="همدان">همدان</option>
+                    <option value="یزد">یزد</option>
                   </select>
                 </div>
                 <div className="input-group-custom font3 mb-1">
@@ -218,12 +317,21 @@ export default function NewAdvertisment() {
                     </span>
                   </div>
                   <select className="select-custom w-100" id="Operator">
-                    <option defaultValue>اپراتور</option>
-                    <option value="همراه اول">همراه اول</option>
-                    <option value="ایرانسل">ایرانسل</option>
-                    <option value="رایتل">رایتل</option>
+                    <option defaultValue value="">
+                      نوع رند
+                    </option>
+                    <option value="رند">رند</option>
+                    <option value="نیمه رند">نیمه رند</option>
+                    <option value="معمولی">معمولی</option>
                   </select>
                 </div>
+                {Rond ? (
+                  <div className="lead font4 c-light-red">
+                    نوع رند توسط کارشناس قبل از تایید پست چک میشه
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="input-group mt-3 d-flex justify-content-center align-content-end">
                   <p className="mt-auto m-0 mr-5 mr-md-3">تومان</p>
 
@@ -236,6 +344,7 @@ export default function NewAdvertisment() {
                   />
                   <p className="mt-auto m-0">.000</p>
                 </div>
+
                 <div className="input-group-custom font3 mb-1">
                   <div className="input-group-prepend custom-select-prepand d-flex justify-content-center align-items-center p-1 pl-3">
                     <span>
@@ -243,7 +352,9 @@ export default function NewAdvertisment() {
                     </span>
                   </div>
                   <select className="select-custom w-100" id="status">
-                    <option defaultValue>وضعیت</option>
+                    <option defaultValue value="">
+                      وضعیت
+                    </option>
                     <option>صفر</option>
                     <option>تقریبا صفر</option>
                     <option>کارکرده</option>
@@ -252,12 +363,49 @@ export default function NewAdvertisment() {
               </div>
               <div className="col-12 col-md-7 order-md-1 py-3">
                 <textarea
-                  class="form-control w-100 h-100 mh-100px"
+                  class="form-control w-100 mh-100px"
                   id="exampleFormControlTextarea1"
                   placeholder="متن تبلیغ"
                   value={Text}
+                  maxlength="150"
                   onChange={handleTextOnChange}
                 ></textarea>
+                <div class="col-12 form-check row m-0 p-0 py-2 px-3">
+                  <label class="col-10 form-check-label font2" for="checkBox">
+                    فروش فوری؟
+                  </label>
+                  <input
+                    type="checkbox"
+                    class="col-2 form-check-input"
+                    data-toggle="collapse"
+                    data-target="#collapsediv1"
+                    onChange={e => {
+                      setSale(e.target.checked);
+                      console.log(e.target.checked);
+                    }}
+                  />
+                </div>
+
+                <div
+                  className=" col-12"
+                  id="collapsediv1"
+                  class="collapse div1"
+                >
+                  <div className="input-group m-0 p-0 d-flex justify-content-center align-content-end">
+                    <p className="mt-auto m-0 mr-5 mr-md-3 d-inline-block">
+                      تومان
+                    </p>
+
+                    <input
+                      type="text w-50"
+                      className="form-control flex-auto d-inline-block"
+                      placeholder="قیمت به تومان"
+                      value={SecondPrice}
+                      onChange={handleSecondPriceOnChange}
+                    />
+                    <p className="mt-auto m-0 d-inline-block">.000</p>
+                  </div>
+                </div>
               </div>
 
               <div className="col-12 order-md-3">

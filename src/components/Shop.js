@@ -27,10 +27,10 @@ export default class Shop extends Component {
         <MegaMenu />
         <SectionTitle title="فروشهای فوری" collapse="specialOffersToggler" />
         <SpecialOffers uri="/custom-routes/v1/advertisments" sale={true} />
-        <SectionTitle title="جستجو" collapse="searchBox" />
+        {/* <SectionTitle title="جستجو" collapse="searchBox" />
         <SearchBox />
         <SectionTitle title="سیم کارت یافت شده" collapse="mainAdsToggler" />
-        <MainAds uri="/custom-routes/v1/advertisments" />
+        <MainAds uri="/custom-routes/v1/advertisments" /> */}
         {/* <Ad2 />
         <SectionTitle title="پیشنهادهای هفته" collapse="SpecialOffersWrapepr" />
         <div className="SpecialOffersWrapepr">

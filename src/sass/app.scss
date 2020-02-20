@@ -15,6 +15,7 @@ $brand-whitish: #eee;
 $brand-custom: rgba(192, 191, 185, 0.945);
 $brand-custom1: rgb(207, 207, 206);
 $brand-card-rond: rgba(255, 0, 0, 0.87);
+$brand-card-nime-rond: rgb(255, 246, 122);
 $brand-advertisers: rgb(236, 246, 250);
 $brand-vip-advertisers: rgb(250, 241, 164);
 $brand-select-bg: transparent;
@@ -214,6 +215,7 @@ font3-4 {
 }
 
 //////////////
+
 .f-black {
   font: $brand-black !important;
 }
@@ -228,6 +230,9 @@ font3-4 {
 
 .c-white {
   color: $brand-white !important;
+}
+.c-light-red {
+  color: rgb(247, 15, 7) !important;
 }
 //NAVBAR1
 .myNavbar {
@@ -452,6 +457,12 @@ font3-4 {
 }
 .card-rond {
   background: $brand-card-rond;
+  padding: 0rem 0.6rem;
+  color: white;
+  border-radius: 7px;
+}
+.card-nime-rond {
+  background: $brand-card-nime-rond;
   padding: 0rem 0.6rem;
   color: white;
   border-radius: 7px;
@@ -878,8 +889,13 @@ ul.social-network li {
   width: 4rem !important;
 }
 
-//Section Title
+//new Advertisment Title
 
+.checkboxFrosh {
+}
+
+.secondPrice {
+}
 //ADVERTISERS SECTION
 
 .advertiser {

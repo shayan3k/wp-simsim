@@ -63,11 +63,13 @@ function SpecialOffers(props) {
       .get(baseUrl + props.uri)
       .then(response => {
         setPosts(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
+  console.log(posts);
 
   return (
     <>
@@ -79,14 +81,19 @@ function SpecialOffers(props) {
           <div className="p-3 h-100" key={item.id}>
             <Advertisment
               phoneNumber={item.phonenumber}
-              status={item.bodytext}
+              status={item.simstatus}
+              rond={item.rond}
+              code={item.code}
+              value={item.value}
+              operator={item.operator}
               location={item.location}
               price={item.price}
               text={item.text}
-              sellerPhoneNumber={item.sellerphonenumber}
-              sellerName={item.sellername}
+              sellerPhoneNumber={item.author.username}
+              sellerName={item.author.display_name}
               key={item.id}
-              sale={props.sale}
+              sale={item.sale}
+              secondPrice={item.secondprice}
             />
           </div>
         ))}

@@ -15,13 +15,16 @@ export default class Advertisment extends Component {
       phoneNumber: props.phoneNumber,
       status: props.status,
       location: props.location,
+      phoneNumber: props.phoneNumber,
+      rond: props.rond,
+      code: props.code,
+      value: props.value,
       price: props.price,
+      secondPrice: props.secondPrice,
       text: props.text,
       sellerPhoneNumber: props.sellerPhoneNumber,
       sellerName: props.sellerName,
-      sale: props.sale,
-      flag: "bronz",
-      rond: "rond"
+      sale: props.sale
     };
   }
 
@@ -38,27 +41,21 @@ export default class Advertisment extends Component {
   };
 
   flagRender = () => {
-    if (this.state.flag === "urgent")
+    if (this.state.sale === "فوری")
       return <div className="card-flag font3-4">فوری</div>;
-    else if (this.state.flag === "diamond")
-      return (
-        <div className="card-crown font3-4">
-          <i class="fa fa-diamond" aria-hidden="true"></i>
-        </div>
-      );
-    else if (this.state.flag === "gold")
+    else if (this.state.value === "طلایی")
       return (
         <div className="card-crown font3-4">
           <img className="w-100 h-100" src={GoldCrown} alt="GoldCrown" />
         </div>
       );
-    else if (this.state.flag === "silver")
+    else if (this.state.value === "نقره ای")
       return (
         <div className="card-crown font3-4">
           <img className="w-100 h-100" src={SilverCrown} alt="SilverCrown" />
         </div>
       );
-    else if (this.state.flag === "bronz")
+    else if (this.state.value === "برنز")
       return (
         <div className="card-crown font3-4">
           <img className="w-100 h-100" src={BronzCrown} alt="crown" />
@@ -69,31 +66,14 @@ export default class Advertisment extends Component {
     }
   };
 
-  rondRender = () => {
-    if (this.state.flag === "urgent")
-      return <div className="card-flag font3-4">فوری</div>;
-    else if (this.state.flag === "gold")
+  RondRender() {
+    if (this.state.rond === "رند")
+      return <span className="card-rond font2 h-100">{this.state.rond}</span>;
+    else if (this.state.rond === "نیمه رند")
       return (
-        <div className="card-crown font3-4">
-          <img className="w-100 h-100" src={GoldCrown} alt="GoldCrown" />
-        </div>
+        <span className="card-nime-rond font2 h-100">{this.state.rond}</span>
       );
-    else if (this.state.flag === "silver")
-      return (
-        <div className="card-flag font3-4">
-          <img className="w-100 h-100" src={SilverCrown} alt="SilverCrown" />
-        </div>
-      );
-    else if (this.state.flag === "bronz")
-      return (
-        <div className="card-flag font3-4">
-          <img src="BronzCrown" img={BronzCrown} />
-        </div>
-      );
-    else {
-      return <div className="card-flag font3-4">Not found</div>;
-    }
-  };
+  }
 
   render(props) {
     return (
@@ -116,21 +96,29 @@ export default class Advertisment extends Component {
             <h6 className="card-title font3 text-center  p-0  m-0 py-1">
               {this.state.status} | {this.state.location}
             </h6>
-            <p className="card-text font2 text-center p-0 m-0">
-              {persianJs(this.state.price)
-                .englishNumber()
-                .toString()}
-              تومان
-            </p>
+
             {this.state.sale ? (
-              <p className="card-text line-through font3 line text-center p-0 m-0 pb-1">
+              <>
+                <p className="card-text font2 text-center p-0 m-0">
+                  {persianJs(this.state.secondPrice)
+                    .englishNumber()
+                    .toString()}
+                  تومان
+                </p>
+                <p className="card-text line-through font3 line text-center p-0 m-0 pb-1">
+                  {persianJs(this.state.price)
+                    .englishNumber()
+                    .toString()}
+                  تومان
+                </p>
+              </>
+            ) : (
+              <p className="card-text font2 text-center p-0 m-0">
                 {persianJs(this.state.price)
                   .englishNumber()
                   .toString()}
                 تومان
               </p>
-            ) : (
-              ""
             )}
 
             <div className="w-100 font3 ">{this.state.text}</div>
@@ -139,7 +127,7 @@ export default class Advertisment extends Component {
             <hr className="my-1 " />
             <div className="m-0 p-0 d-flex justify-content-between align-items-end">
               <span className="lead font3 h-100">4 ساعت قبل</span>
-              <span className="card-rond font2 h-100">رند</span>
+              {this.RondRender()}
             </div>
           </div>
         </div>
@@ -147,11 +135,11 @@ export default class Advertisment extends Component {
           <div className="card-body w-100 h-100 d-flex justify-content-center align-items-center flex-column  ">
             <div className="flip-card-background"></div>
             <h1 className="font1 text-center p-2">
-              {persianJs("09127170126")
+              {persianJs(this.state.sellerPhoneNumber)
                 .englishNumber()
                 .toString()}
             </h1>
-            <p className="font2 text-center p-2">احمد روزبه</p>
+            <p className="font2 text-center p-2">{this.state.sellerName}</p>
           </div>
         </div>
       </div>

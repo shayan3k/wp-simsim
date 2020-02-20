@@ -178,6 +178,10 @@ font3-4 {
   color: #f0f0f0 !important;
 }
 
+.c-light-red {
+  color: #f70f07 !important;
+}
+
 .myNavbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -424,6 +428,13 @@ font3-4 {
 
 .card-rond {
   background: rgba(255, 0, 0, 0.87);
+  padding: 0rem 0.6rem;
+  color: white;
+  border-radius: 7px;
+}
+
+.card-nime-rond {
+  background: #fff67a;
   padding: 0rem 0.6rem;
   color: white;
   border-radius: 7px;

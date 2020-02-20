@@ -75,14 +75,15 @@ function SignUp() {
         msg += "<li>تیک قوانین نزدی</li>";
         flag = true;
       }
-
-      if (!flag) {
-        Axios.post(baseUrl + "/wp/v2/users/register", {
+let data = {
           username: PhoneNumber,
           name: Name,
           email: Email,
           password: Password
-        })
+        };
+        console.log(data);
+      if (!flag) {
+        Axios.post(baseUrl + "/wp/v2/users/register", data)
           .then(e => {
             console.log(e);
             setError({
