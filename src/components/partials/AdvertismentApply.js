@@ -9,7 +9,7 @@ export default class AdvertismentApply extends Component {
     return (
       <Link
         className="card text-decoration-none c-black w-100 h-100 advertisment py-0 shadow position-relative bg-transparent"
-        to="/shop"
+        to="/dashboard"
       >
         <div className="card-body w-100 h-100 py-3 d-flex justify-content-center align-items-center flex-column">
           <div

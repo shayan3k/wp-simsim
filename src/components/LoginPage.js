@@ -9,7 +9,7 @@ import Navbar from "./partials/Navbar";
 import Logo from "./partials/Logo";
 import SignUp from "./partials/SignUp";
 import Login from "./partials/Login";
-import Seperator from "./partials/Seperator";
+import FooterSeperator from "./partials/FooterSeperator";
 import Footer from "./partials/Footer";
 
 function LoginPage() {
@@ -33,7 +33,7 @@ function LoginPage() {
           </GoogleReCaptchaProvider>
         </div>
       </section>
-      <Seperator />
+      <FooterSeperator />
       <Footer />
     </>
   );

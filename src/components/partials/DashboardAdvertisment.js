@@ -44,19 +44,22 @@ function DashboardAdvertisment(props) {
           >
             <Advertisment
               phoneNumber={item.phonenumber}
-              status={item.status}
+              status={item.simstatus}
+              rond={item.rond}
+              code={item.code}
+              value={item.value}
+              operator={item.operator}
               location={item.location}
               price={item.price}
               text={item.text}
-              sellerPhoneNumber={item.sellerphonenumber}
-              sellerName={item.sellername}
+              sellerPhoneNumber={item.author.username}
+              sellerName={item.author.display_name}
+              key={item.id}
+              sale={item.sale}
+              secondPrice={item.secondprice}
             />
           </div>
         ))}
-
-        <div className="row col-12 mx-auto mx-0 p-0 px-1 py-3">
-          <AdvertismentApply />
-        </div>
       </div>
     </div>
   );

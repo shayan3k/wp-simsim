@@ -8,10 +8,11 @@ import {
 import Shop from "./components/Shop";
 import ContactUs from "./components/ContactUs";
 import Rahnama from "./components/Rahnama";
-import Faq from "./components/Faq";
+import AboutUs from "./components/AboutUs";
+import Ghavanin from "./components/Ghavanin";
 import LoginPage from "./components/LoginPage";
 import Dashboard from "./components/Dashboard";
-import PageNotFound from "./components/partials/PageNotFound";
+import PageNotFound from "./components/PageNotFound";
 import { JWTCheck, JWTValidate } from "./components/services/Auth";
 import secureStorage from "./components/services/Storage";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -73,7 +74,8 @@ function App() {
           <Shop exact path="/wordpress/" />
           <Rahnama path="/wordpress/guide" />
           <ContactUs path="/wordpress/contact-us" />
-          <Faq path="/wordpress/faq" />
+          <AboutUs path="/wordpress/about-us" />
+          <Ghavanin path="/wordpress/ghavanin" />
           <PrivateRoute path="/wordpress/dashboard" component={Dashboard} />
           <AuthenticatedRoute path="/wordpress/login" component={LoginPage} />
           <Route component={PageNotFound} />

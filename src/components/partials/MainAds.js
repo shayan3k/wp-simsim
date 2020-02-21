@@ -30,7 +30,7 @@ function MainAds(props) {
   return (
     <div className="container bg-white my-0 mainAdsToggler">
       <div className="row p-0 m-0">
-        {posts.map(item => {
+        {posts.map((item, index) => {
           if (SimStatus != "" && SimStatus !== item.simstatus) return;
           if (SimValue != "" && SimValue !== item.value) return;
           if (SimRond != "" && SimRond !== item.rond) return;
@@ -49,33 +49,38 @@ function MainAds(props) {
           }
 
           return (
-            <div
-              className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3"
-              key={item.id}
-            >
-              <Advertisment
-                phoneNumber={item.phonenumber}
-                status={item.simstatus}
-                rond={item.rond}
-                code={item.code}
-                value={item.value}
-                operator={item.operator}
-                location={item.location}
-                price={item.price}
-                text={item.text}
-                sellerPhoneNumber={item.author.username}
-                sellerName={item.author.display_name}
+            <>
+              <div
+                className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3"
                 key={item.id}
-                sale={item.sale}
-                secondPrice={item.secondprice}
-              />
-            </div>
+              >
+                <Advertisment
+                  phoneNumber={item.phonenumber}
+                  status={item.simstatus}
+                  rond={item.rond}
+                  code={item.code}
+                  value={item.value}
+                  operator={item.operator}
+                  location={item.location}
+                  price={item.price}
+                  text={item.text}
+                  sellerPhoneNumber={item.author.username}
+                  sellerName={item.author.display_name}
+                  key={item.id}
+                  sale={item.sale}
+                  secondPrice={item.secondprice}
+                />
+              </div>
+              {index % 9 == 0 ? (
+                <div className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3">
+                  <AdvertismentApply />
+                </div>
+              ) : (
+                ""
+              )}
+            </>
           );
         })}
-
-        <div className="row col-12 mx-auto mx-0 p-0 px-1 py-3">
-          <AdvertismentApply />
-        </div>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function Navbar() {
     menuTogglerAnimation.reverse();
   };
   return (
-    <nav className="container-fluid row px-0 w-100 myNavbar">
+    <nav className="container-fluid row px-0 w-100 myNavbar" id="myNavbar">
       <div className="container row px-0 mx-auto d-flex justify-content-between align-items-center">
         <ul className="navbar-brand pl-0">
           <li className="nav-item navbar-item-active mr-auto c-white">
@@ -75,12 +75,10 @@ function Navbar() {
 
         <ul className="navbar-ul d-none d-md-flex ">
           {Navbar.map(item => {
-            let link = "/wordpress" + item.url;
-            let postTitle = item.post_title;
             return (
               <li className="nav-item">
-                <Link className="nav-link font3" to={link}>
-                  {postTitle}
+                <Link className="nav-link font3" to={"/wordpress" + item.url}>
+                  {item.post_title}
                 </Link>
               </li>
             );
@@ -88,30 +86,13 @@ function Navbar() {
         </ul>
 
         <ul className="w-100 mobile-menu">
-          <Link className="mobile-menu-item">
-            <span>خانه</span>
-          </Link>
-          <Link className="mobile-menu-item">
-            <span> خرید سیمکارت</span>
-          </Link>
-          <Link className="mobile-menu-item">
-            <span> فروش سیمکارت</span>
-          </Link>
-          <Link className="mobile-menu-item">
-            <span> راهنما</span>
-          </Link>
-
-          <Link className="mobile-menu-item">
-            <span> سوالات متداول</span>
-          </Link>
-
-          <Link className="mobile-menu-item">
-            <span> تبلیغات</span>
-          </Link>
-
-          <Link className="mobile-menu-item">
-            <span> تماس با ما</span>
-          </Link>
+          {Navbar.slice(0)
+            .reverse()
+            .map(item => (
+              <Link className="mobile-menu-item" to={"/wordpress" + item.url}>
+                <span> {item.post_title}</span>
+              </Link>
+            ))}
         </ul>
       </div>
     </nav>

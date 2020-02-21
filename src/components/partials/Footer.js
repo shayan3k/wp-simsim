@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <>
       <footer className="page-footer font-small stylish-color-dark pt-4">
-        <a className="go-to-top" href="#">
+        <a className="go-to-top" href="#myNavbar">
           <i class="fas fa-arrow-up fa-rotate-45"></i>
         </a>
         <div className="container text-center text-md-left">

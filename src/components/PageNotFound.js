@@ -1,23 +1,19 @@
 import React from "react";
 import Navbar from "./partials/Navbar";
 import Logo from "./partials/Logo";
-import Seperator from "./partials/Seperator";
 import FooterSeperator from "./partials/FooterSeperator";
 import Footer from "./partials/Footer";
-import RahnamaContents from "./partials/RahnamaContents";
-import SectionTitle from "./partials/SectionTitle";
 
-function Rahnama() {
+export default function PageNotFound() {
   return (
     <>
       <Navbar />
       <Logo />
-      <SectionTitle title="راهنما" />
-      <RahnamaContents />
+
+      <div className="container bg-white py-5 mt-1">صفحه مورد نظر یافت نشد</div>
+
       <FooterSeperator />
       <Footer />
     </>
   );
 }
-
-export default Rahnama;
