@@ -1,23 +1,29 @@
 $brand-primary: #18fc9d;
 $brand-secondary: rgb(255, 255, 255);
-$brand-background: #e9ecf0;
-$brand-navbar: #57886c;
+$brand-background: hsl(214, 19%, 93%);
+$brand-navbar: #41658a;
 $brand-navbar-items: gray;
 $brand-navbar-items-hover: #eee;
 $brand-navbar-items-hover-text: black;
-$brand-seperator: red;
+$brand-seperator: #86bbbd;
 $brand-fourthly: blue;
 $brand-hover: #466060;
-$brand-footer: white;
+$brand-footer: #86bbbd;
+$brand-mega-menu: #f4fad1;
 $brand-mega-menu-items: rgb(15, 12, 12);
 $brand-primary-lighter: #b6faca;
 $brand-whitish: #eee;
-$brand-custom: rgba(192, 191, 185, 0.945);
-$brand-custom1: rgb(207, 207, 206);
+$brand-section-title-toggler: #c6da97;
+$brand-section-title: #f4fad1;
 $brand-card-rond: rgba(255, 0, 0, 0.87);
-$brand-card-nime-rond: rgb(255, 246, 122);
+$brand-card-nime-rond: rgba(255, 0, 0, 0.87);
 $brand-advertisers: rgb(236, 246, 250);
-$brand-vip-advertisers: rgb(250, 241, 164);
+$brand-vip-advertisers: #c5d2db;
+$brand-vip-advertisers-second: #a686f0;
+$brand-search-box: #f4fad1;
+$brand-main-ads: #f4fad1;
+$brand-custom: #f4fad1;
+
 $brand-select-bg: transparent;
 $brand-select-panel: white;
 $brand-select-hover: rgb(88, 88, 88);
@@ -34,12 +40,12 @@ $font-datePicker: 0.6rem;
 //BG CONFIG
 
 .bg-vip-advertisers-sim {
-  background: rgba(255, 229, 159, 0.842);
+  background: $brand-vip-advertisers;
   font-weight: 700;
 }
 
 .bg-vip-advertisers-sim-owner {
-  background: rgba(255, 108, 10, 0.829);
+  background: $brand-vip-advertisers-second;
   font-weight: 700;
 }
 .bg-advertisers-sim {
@@ -209,6 +215,9 @@ font3-4 {
 }
 
 //MAIN STYLEING SECTION
+.mainAdsToggler {
+  background: $brand-main-ads !important;
+}
 
 //LOGO
 
@@ -299,6 +308,10 @@ font3-4 {
   color: $brand-text-white;
   font-size: 0.8rem !important;
   white-space: nowrap !important;
+
+  &:hover {
+    color: white !important;
+  }
 }
 
 .dp__input {
@@ -320,6 +333,7 @@ font3-4 {
 
 .mega-menu {
   justify-content: space-between !important;
+  background: $brand-mega-menu !important;
 }
 
 .btn-mega-menu {
@@ -512,7 +526,7 @@ font3-4 {
 }
 
 .card-header-vip-advertiser {
-  background: rgba(255, 108, 10, 0.829) !important  ;
+  background: $brand-vip-advertisers-second !important;
 }
 
 .card-body-advertiser {
@@ -623,6 +637,9 @@ footer {
   align-items: center;
   border-left-color: $brand-seperator;
   border-top-color: $brand-seperator;
+  i {
+    color: $brand-white;
+  }
 }
 .fa-rotate-45 {
   transform: rotate(-45deg);
@@ -779,10 +796,11 @@ ul.social-network li {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: $brand-section-title-toggler !important;
 }
 
 .sectionTitle {
-  background: $brand-custom1;
+  background: $brand-section-title;
 }
 
 //CUSTOM SELECT CLASS
@@ -835,6 +853,9 @@ ul.social-network li {
 
 //ADVANCE SEARCH
 
+#searchBoxAccordition {
+  background: $brand-search-box !important;
+}
 .search-box-title-img {
   width: 4rem !important;
 }

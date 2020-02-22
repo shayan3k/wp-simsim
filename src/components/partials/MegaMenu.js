@@ -220,7 +220,7 @@ export default function MegaMenu() {
   return (
     <>
       <div
-        className="container bg-white mega-menu d-flex justify-content-between align-items-center position-relative flex-column px-0 px-md-1"
+        className="container mega-menu d-flex justify-content-between align-items-center position-relative flex-column px-0 px-md-1"
         id="mega-menu"
       >
         <div className="w-100 m-0 p-0 d-flex justify-content-between align-items-center">

@@ -18,10 +18,7 @@ function ContactUsContents(props) {
         </div>
       </div>
       <div className="row p-0 m-0">
-        <div className="col-md-5 order-2 order-md-1 d-flex justify-content-center align-items-center p-0 ">
-          <GoogleMap />
-        </div>
-        <div className="col-md-7 order-1 order-md-2">
+        <div className="col-12 order-1 order-md-2">
           <ContactDetails />
         </div>
       </div>

@@ -35,7 +35,7 @@ export default function VipAdvertiser() {
   return (
     <div className="card w-100 h-100 border-0 position-relative">
       <div className="advertiser-vip-flag-icon">
-        <img className="w-100 h-100" src={vip} alt="vip" />
+        {/* <img className="w-100 h-100" src={vip} alt="vip" /> */}
       </div>
       <div className="card-header card-header-vip-advertiser d-flex justify-content-end align-content-center px-1 py-4">
         <h6 className="font1 my-auto pr-1">{Title}</h6>

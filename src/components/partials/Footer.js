@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="row m-0 p-0 ">
             <div className="col-12 col-md-6 mt-md-0 mt-3">
               <h5 className="text-uppercase">بورس سیمکارت</h5>
-              <p>خرید و فروش انواع سیمکارت های اعتباری و دایم</p>
+              <p>مهم اینه که میتونی بدون واسطه سیمکارت بفروشی</p>
             </div>
 
             <hr className="col-12 clearfix w-100 d-md-none pb-3" />
@@ -38,16 +38,16 @@ export default function Footer() {
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">سیمکارت</a>
+                  <a href="#!">داشبورد</a>
                 </li>
                 <li>
-                  <a href="#!">همراه اول</a>
+                  <a href="#!">قوانین</a>
                 </li>
                 <li>
-                  <a href="#!">ایرانسل</a>
+                  <a href="#!">تبلیغات</a>
                 </li>
                 <li>
-                  <a href="#!">رایتل</a>
+                  <a href="#!">درباره ما</a>
                 </li>
               </ul>
             </div>
@@ -56,16 +56,14 @@ export default function Footer() {
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">سیمکارت</a>
+                  <a href="#!">خانه</a>
                 </li>
                 <li>
-                  <a href="#!">همراه اول</a>
+                  <a href="#!">ثبت نام</a>
                 </li>
+
                 <li>
-                  <a href="#!">ایرانسل</a>
-                </li>
-                <li>
-                  <a href="#!">رایتل</a>
+                  <a href="#!">تماس با ما</a>
                 </li>
               </ul>
             </div>
@@ -73,9 +71,9 @@ export default function Footer() {
           <hr />
         </div>
         <div className="row m-0 p-0 w-100  d-flex justify-content-center align-content-center">
-          <div className="col-12 col-md-6 row p-0 m-0 container d-flex justify-content-center flex-column align-items-center mx-auto">
-            <h6>سیمکارت خود را قیمتگزاری منید</h6>
-            <button className="btn btn-outline-dark btn-lg ">شروع</button>
+          <div className="col-12 col-md-6 row p-0 m-0 container d-flex justify-content-center flex-column align-items-end mx-auto">
+            <h6 className="text-white">سیمکارت خود را آگهی کنید</h6>
+            <button className="btn btn-outline-light">شروع</button>
             <hr />
           </div>
 

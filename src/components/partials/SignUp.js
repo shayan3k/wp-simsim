@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import Link from "react-router-dom";
 import Axios from "axios";
 
 const validateEmail = email => {
@@ -48,31 +49,31 @@ function SignUp() {
 
       console.log(PhoneNumber.slice(0, 2));
       if (PhoneNumber.length !== 11 || PhoneNumber.slice(0, 2) !== "09") {
-        msg += "<li>شماره اشتباه</li>";
+        msg += "<li>شماره تماس وارد شده اشتباه است</li>";
         flag = true;
       }
       if (!validateEmail(Email)) {
-        msg += "<li>ایمیل اشتب است</li>";
+        msg += "<li>ایمیل وارد شده اشتباه است</li>";
         flag = true;
       }
 
       if (!Name) {
-        msg += "<li>نام اشنباس</li>";
+        msg += "<li>نام وارد شده اشتباه است</li>";
         flag = true;
       }
 
       if (Password !== VerifyPassword) {
-        msg += "<li>رمز مغایر است</li>";
+        msg += "<li>رمزهای وارد مغایر است</li>";
         flag = true;
       }
 
       if (Password.length < 8) {
-        msg += "<li>پسورد حداقل 8 کرکتر الاغ</li>";
+        msg += "<li>رمز عبور وارد شده کمتر از 8 کرکتر است</li>";
         flag = true;
       }
 
       if (!CheckBox) {
-        msg += "<li>تیک قوانین نزدی</li>";
+        msg += "<li>تیک قوانین نزده نشده</li>";
         flag = true;
       }
       let data = {
@@ -87,7 +88,8 @@ function SignUp() {
           .then(e => {
             console.log(e);
             setError({
-              msg: "موفق. حالا وارد شو",
+              msg:
+                "ثبت نام شما با موفقیت انجام شد. لطفا با نام کاربری و رمز عبور خود, وارد شوید",
               status: "success"
             });
             handleResetfields();
@@ -116,13 +118,11 @@ function SignUp() {
 
   const handlePhoneNumberOnChange = e => {
     var data = e.target.value.replace(/[^0-9]+/g, "");
-    console.log(data);
     setPhoneNumber(data);
   };
 
   const handleNameOnChange = e => {
     var data = e.target.value.replace(/[^\u0600-\u06FF\s]/g, "");
-    console.log(data);
     setName(data);
   };
 

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 .bg-vip-advertisers-sim {
-  background: rgba(255, 229, 159, 0.842);
+  background: #c5d2db;
   font-weight: 700;
 }
 
 .bg-vip-advertisers-sim-owner {
-  background: rgba(255, 108, 10, 0.829);
+  background: #a686f0;
   font-weight: 700;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .bg-custom {
-  background: rgba(192, 191, 185, 0.945) !important;
+  background: #f4fad1 !important;
 }
 
 .bg-secondary {
@@ -35,7 +35,7 @@
 }
 
 .bg-background {
-  background-color: #e9ecf0 !important;
+  background-color: #eaedf1 !important;
 }
 
 .bg-navbar2 {
@@ -111,7 +111,7 @@ font3-4 {
 
 #root {
   overflow-x: hidden !important;
-  background-color: #e9ecf0;
+  background-color: #eaedf1;
 }
 
 #App {
@@ -166,6 +166,10 @@ font3-4 {
   font-style: normal;
 }
 
+.mainAdsToggler {
+  background: #f4fad1 !important;
+}
+
 .logoNav:hover {
   -webkit-box-shadow: 7px 7px 18px 1px rgba(0, 0, 0, 0.57);
   box-shadow: 7px 7px 18px 1px rgba(0, 0, 0, 0.57);
@@ -202,7 +206,7 @@ font3-4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #57886c;
+  background: #41658a;
 }
 
 .myNavbar .navbar-brand,
@@ -268,6 +272,10 @@ font3-4 {
   white-space: nowrap !important;
 }
 
+.nav-link:hover {
+  color: white !important;
+}
+
 .dp__input {
   pointer-events: none;
   background: transparent;
@@ -279,7 +287,7 @@ font3-4 {
 
 .seperator {
   height: 3px !important;
-  background: red;
+  background: #86bbbd;
   width: 100% !important;
 }
 
@@ -287,6 +295,7 @@ font3-4 {
   -webkit-box-pack: justify !important;
       -ms-flex-pack: justify !important;
           justify-content: space-between !important;
+  background: #f4fad1 !important;
 }
 
 .btn-mega-menu {
@@ -296,7 +305,7 @@ font3-4 {
   background: transparent;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  border-bottom: 2px solid red !important;
+  border-bottom: 2px solid #86bbbd !important;
   white-space: nowrap !important;
 }
 
@@ -305,7 +314,7 @@ font3-4 {
   outline: none !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  border-bottom: 2px solid red !important;
+  border-bottom: 2px solid #86bbbd !important;
 }
 
 .dropdown-menu {
@@ -402,7 +411,7 @@ font3-4 {
 }
 
 .slick-list {
-  background: rgba(192, 191, 185, 0.945);
+  background: #f4fad1;
 }
 
 .advertisment {
@@ -445,7 +454,7 @@ font3-4 {
 }
 
 .card-nime-rond {
-  background: #fff67a;
+  background: rgba(255, 0, 0, 0.87);
   padding: 0rem 0.2rem;
   color: white;
   border-radius: 7px;
@@ -486,15 +495,15 @@ font3-4 {
 }
 
 .card-body-vip-advertiser {
-  background: #faf1a4 !important;
+  background: #c5d2db !important;
 }
 
 .card-footer-vip-advertiser {
-  background: #faf1a4 !important;
+  background: #c5d2db !important;
 }
 
 .card-header-vip-advertiser {
-  background: rgba(255, 108, 10, 0.829) !important;
+  background: #a686f0 !important;
 }
 
 .card-body-advertiser {
@@ -578,7 +587,7 @@ font3-4 {
 
 /*FOOTER*/
 footer {
-  background: white;
+  background: #86bbbd;
   color: #000000 !important;
   position: relative;
 }
@@ -590,10 +599,10 @@ footer {
   -webkit-transform: translate(-25px, -50%) rotate(45deg);
           transform: translate(-25px, -50%) rotate(45deg);
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid #86bbbd;
   top: 0;
   left: 50%;
-  background: white;
+  background: #86bbbd;
   z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -604,14 +613,18 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-left-color: red;
-  border-top-color: red;
+  border-left-color: #86bbbd;
+  border-top-color: #86bbbd;
+}
+
+.go-to-top i {
+  color: #f0f0f0;
 }
 
 .fa-rotate-45 {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  color: red;
+  color: #86bbbd;
 }
 
 footer a {
@@ -754,10 +767,11 @@ ul.social-network li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: #c6da97 !important;
 }
 
 .sectionTitle {
-  background: #cfcfce;
+  background: #f4fad1;
 }
 
 .custom-select-prepand {
@@ -809,6 +823,10 @@ ul.social-network li {
   cursor: pointer !important;
   background: #585858 !important;
   color: #f3f1f1;
+}
+
+#searchBoxAccordition {
+  background: #f4fad1 !important;
 }
 
 .search-box-title-img {

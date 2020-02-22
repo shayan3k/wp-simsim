@@ -1,15 +1,18 @@
 import React from "react";
+import persianJs from "persianjs";
 
 export default function ContactDetails() {
   return (
-    <div className="container py-1">
+    <div className="container py-1 ">
       <span className="well font-0">برای تبلیغات با ما تماس بگیرید</span>
       <hr />
       <p className="font2 ">
-        این سایت با هدف ایجاد یک بستر مناسب برای خرید و فروش انواع مختلف سیمکارت
-        بدون واسطه ایجاد گردیده و میتوان به عنوان یک مرجع و بازار مجازی مطمئن و
-        قابل اعتماد سیمکارت از آن استفاده کرد.
+        شماره تماس:{" "}
+        {persianJs("09190771243")
+          .englishNumber()
+          .toString()}{" "}
       </p>
+      M.MEHRABI5445@GMAIL.COM :ایمیل
     </div>
   );
 }

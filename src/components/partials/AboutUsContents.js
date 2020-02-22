@@ -1,4 +1,5 @@
 import React from "react";
+import persianJs from "persianjs";
 
 export default function AboutUsContents() {
   return (
@@ -7,8 +8,12 @@ export default function AboutUsContents() {
       <hr />
       <p className="font2 ">
         این سایت با هدف ایجاد یک بستر مناسب برای خرید و فروش انواع مختلف سیمکارت
-        بدون واسطه ایجاد گردیده و میتوان به عنوان یک مرجع و بازار مجازی مطمئن و
-        قابل اعتماد سیمکارت از آن استفاده کرد.
+        بدون واسطه در سال{" "}
+        {persianJs(1398)
+          .englishNumber()
+          .toString()}{" "}
+        ایجاد گردیده و میتوان به عنوان یک مرجع و بازار مجازی مطمئن و قابل اعتماد
+        سیمکارت از آن استفاده کرد.
       </p>
       <p className="font2 ">
         بدیهی است که در زمانه ی ما زندگی به سمت هرچه در دسترس تر بودن امکانات

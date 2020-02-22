@@ -54,7 +54,7 @@ function Login() {
         // enableLoginBtn();
       });
     } else {
-      setError({ msg: "Recaptcha error", status: "danger" });
+      setError({ msg: "Recaptcha تایید نشده.", status: "danger" });
       enableLoginBtn();
     }
   };
@@ -80,6 +80,7 @@ function Login() {
             placeholder="شماره موبایل"
             type="text"
             maxlength="11"
+            value={username}
             onChange={handleUserNameOnChange}
           />
         </div>
@@ -90,6 +91,7 @@ function Login() {
             name="username"
             placeholder="رمز ورود"
             type="password"
+            value={password}
             onChange={handlePasswordOnChange}
           />
         </div>

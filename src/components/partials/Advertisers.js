@@ -16,7 +16,7 @@ function Advertisers() {
 
   return (
     <div className="container mx-auto py-0 AdvertisersToggler">
-      <div className="row bg-secondary pb-5">
+      <div className="row bg-custom pb-5">
         <div className="col-lg-6 order-2 order-lg-1 row p-0 py-4 m-0">
           {advertisers
             ? advertisers.map((item, index) => {

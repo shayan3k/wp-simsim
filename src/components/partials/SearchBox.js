@@ -91,7 +91,7 @@ function SearchBox() {
 
             <div className="default-btn btn-search-option px-1 col-3">
               <h6 className="font2"> جستجو</h6>
-              <i className="fa fa-spinner"></i>
+              <i class="fas fa-search"></i>
             </div>
           </div>
           <hr />

@@ -46,7 +46,7 @@ function MainAds(props) {
   };
 
   return (
-    <div className="container bg-white my-0 mainAdsToggler">
+    <div className="container my-0 mainAdsToggler bg-custom">
       <div className="d-flex justify-content-start align-items-stretch flex-wrap p-0 m-0">
         {posts.map((item, index) => {
           if (SimStatus != "" && SimStatus !== item.simstatus) return;
