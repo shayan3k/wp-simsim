@@ -80,10 +80,6 @@ function SearchBox() {
             className="col-6 col-md-12 ad1-image w-100 px-0 border"
             src="https://via.placeholder.com/100x30.png"
           />
-          <img
-            className="col-6 col-md-12 ad1-image w-100 px-0 border"
-            src="https://via.placeholder.com/100x30.png"
-          />
         </div>
 
         <div
@@ -234,21 +230,6 @@ function SearchBox() {
                     <option value="نیمه رند">نیمه رند</option>
                     <option value="معمولی">معمولی</option>
                   </select>
-                </div>
-              </div>
-              <div className="col-12">
-                <div className="d-flex justify-content-between justify-content-md-center align-items-center">
-                  <button className="default-btn btn-search px-5 mx-4">
-                    <h6>جستجو</h6>
-                    <i className="fa fa-spinner"></i>
-                  </button>
-                  <a
-                    className="default-btn btn-search px-5 mx-4"
-                    onClick={handleResetButton}
-                  >
-                    <h6>ریست</h6>
-                    <i className="fa fa-spinner"></i>
-                  </a>
                 </div>
               </div>
             </div>

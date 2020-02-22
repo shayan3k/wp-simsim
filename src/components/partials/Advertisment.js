@@ -148,7 +148,7 @@ export default class Advertisment extends Component {
             this.state.sellerPhoneNumber ? (
               <button
                 className="btn btn-outline-danger"
-                onClick={e => this.handleDeleteBtn(e, this.state.id)}
+                onClick={e => this.handleDeleteBtn(e, this.state.id, this.state.sellerPhoneNumber)}
               >
                 پاک کردن
               </button>

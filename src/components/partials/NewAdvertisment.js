@@ -253,7 +253,7 @@ export default function NewAdvertisment() {
                     className="form-control"
                     placeholder="شماره تلفن خط فروشی"
                     value={PhoneNumber}
-                    maxlength="11"
+                    maxLength="11"
                     onChange={handlePhoneNumberOnChange}
                   />
                 </div>
@@ -367,7 +367,7 @@ export default function NewAdvertisment() {
                   id="exampleFormControlTextarea1"
                   placeholder="متن تبلیغ"
                   value={Text}
-                  maxlength="150"
+                  maxLength="150"
                   onChange={handleTextOnChange}
                 ></textarea>
                 <div class="col-12 form-check row m-0 p-0 py-2 px-3">
@@ -397,7 +397,7 @@ export default function NewAdvertisment() {
                     </p>
 
                     <input
-                      type="text w-50"
+                      type="text"
                       className="form-control flex-auto d-inline-block"
                       placeholder="قیمت به تومان"
                       value={SecondPrice}

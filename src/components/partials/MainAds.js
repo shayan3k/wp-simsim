@@ -3,6 +3,7 @@ import Advertisment from "./Advertisment";
 import AdvertismentApply from "./AdvertismentApply";
 import { useStoreState } from "easy-peasy";
 import { JWTHeader } from "../services/Auth";
+import secureStorage from "../services/Storage";
 import axios from "axios";
 
 function MainAds(props) {
@@ -27,13 +28,27 @@ function MainAds(props) {
       });
   }, []);
 
-  const handleDeleteBtn = (e, id) => {
-    console.log(e, id);
-    console.log(typeof posts);
-    axios
-      .delete(baseUrl + "/wp/v2/myadvertisement", {}, JWTHeader())
-      .then(res => console.log(res))
-      .catch(e => console.log(e));
+  const handleDeleteBtn = (e, id, sellerPhoneNumber) => {
+    if(secureStorage.getItem('username') === sellerPhoneNumber){ axios
+      .delete(baseUrl + "/wp/v2/myadvertisement/" + id, JWTHeader())
+      .then(res => {
+        console.log(res, posts, 'done')
+
+        setPosts(posts.filter(item => 
+          {
+
+if(item.id!==id) return item;
+
+
+
+          }
+          
+          
+          ))
+     
+      })
+      .catch(e => console.log(e.response));}
+   
   };
 
   return (

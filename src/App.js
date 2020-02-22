@@ -72,7 +72,7 @@ function App() {
       <Router>
         <Switch>
           <Shop exact path="/wordpress/" />
-          <Rahnama path="/wordpress/guide" />
+          <Rahnama path="/wordpress/rahnama" />
           <ContactUs path="/wordpress/contact-us" />
           <AboutUs path="/wordpress/about-us" />
           <Ghavanin path="/wordpress/ghavanin" />

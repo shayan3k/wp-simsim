@@ -34,6 +34,11 @@ function DashboardAdvertisment(props) {
       });
   }, []);
 
+  const handleDeleteBtn = (e) => {
+    console.log('pressed')
+      }
+    
+
   return (
     <div className="container bg-white my-0 DashboardAdvertisment">
       <div className="row p-0 m-0">
@@ -57,7 +62,7 @@ function DashboardAdvertisment(props) {
               id={item.id}
               sale={item.sale}
               secondPrice={item.secondprice}
-              handleDeleteBtn={e => console.log(e, "extra")}
+              handleDeleteBtn={handleDeleteBtn}
             />
           </div>
         ))}

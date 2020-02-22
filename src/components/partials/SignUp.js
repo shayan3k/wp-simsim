@@ -60,6 +60,12 @@ function SignUp() {
         msg += "<li>نام اشنباس</li>";
         flag = true;
       }
+      var p = /@"^([\u0600-\u06FF]+\s?)+$"/;
+
+      if (!Name.match(p)) {
+        msg += "<li>نام باید فارسی باشه</li>";
+        flag = true;
+      }
 
       if (Password !== VerifyPassword) {
         msg += "<li>رمز مغایر است</li>";
@@ -75,13 +81,13 @@ function SignUp() {
         msg += "<li>تیک قوانین نزدی</li>";
         flag = true;
       }
-let data = {
-          username: PhoneNumber,
-          name: Name,
-          email: Email,
-          password: Password
-        };
-        console.log(data);
+      let data = {
+        username: PhoneNumber,
+        name: Name,
+        email: Email,
+        password: Password
+      };
+      console.log(data);
       if (!flag) {
         Axios.post(baseUrl + "/wp/v2/users/register", data)
           .then(e => {
@@ -114,6 +120,22 @@ let data = {
     }
   };
 
+  const handlePhoneNumberOnChange = e => {
+    var data = e.target.value.replace(/[^0-9]+/g, "");
+    console.log(data);
+    setPhoneNumber(data);
+  };
+
+  const handleNameOnChange = e => {
+    var data = e.target.value.replace(/[^\u0600-\u06FF\s]/g, "");
+    console.log(data);
+    setName(data);
+  };
+
+  const handleEmailOnChange = e => {
+    setEmail(e.target.value);
+  };
+
   return (
     <>
       <form
@@ -128,8 +150,9 @@ let data = {
             name="username"
             placeholder="شماره موبایل خود را وارد کنید"
             type="text"
+            maxLength="11"
             value={PhoneNumber}
-            onChange={e => setPhoneNumber(e.target.value)}
+            onChange={handlePhoneNumberOnChange}
           />
         </div>
         <div className="input-group col-10 col-md-9 ml-auto p-0 my-3">
@@ -139,8 +162,9 @@ let data = {
             name="name"
             placeholder="نام"
             type="text"
+            maxLength="20"
             value={Name}
-            onChange={e => setName(e.target.value)}
+            onChange={handleNameOnChange}
           />
         </div>
         <div className="input-group col-10 col-md-9 ml-auto p-0 my-3">
@@ -151,7 +175,7 @@ let data = {
             placeholder="ایمیل"
             type="text"
             value={Email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={handleEmailOnChange}
           />
         </div>
         <div className="input-group col-10 col-md-9 ml-auto p-0 my-3">
@@ -177,14 +201,15 @@ let data = {
           />
         </div>
 
-        <div class="form-check row m-0 p-0 ">
-          <label class="col-11 form-check-label font2" for="checkBox">
+        <div className="form-check row m-0 p-0 ">
+          <label className="col-11 form-check-label font2" for="checkBox">
             قوانین مطالعه کردم
           </label>
           <input
             type="checkbox"
-            class="col-1 form-check-input"
+            className="col-1 form-check-input"
             id="checkBox"
+            value={CheckBox}
             onChange={e => setCheckBox(event.target.checked)}
           />
         </div>

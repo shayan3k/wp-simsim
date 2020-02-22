@@ -10,7 +10,10 @@ export default function PageNotFound() {
       <Navbar />
       <Logo />
 
-      <div className="container bg-white py-5 mt-1">صفحه مورد نظر یافت نشد</div>
+      <div className="container bg-white py-5 mt-1">
+        <p>صفحه مورد نظر یافت نشد</p>
+        برای جستجو سیمکارت مورد نظر روی <a href="/">لینک</a> کلیک کنید
+      </div>
 
       <FooterSeperator />
       <Footer />

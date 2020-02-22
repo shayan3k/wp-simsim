@@ -71,6 +71,10 @@ function SpecialOffers(props) {
   }, []);
   console.log(posts);
 
+  const handleDeleteBtn = (e) => {
+console.log('pressed')
+  }
+
   return (
     <>
       <Slider
@@ -118,7 +122,7 @@ function SpecialOffers(props) {
                   key={item.id}
                   sale={item.sale}
                   secondPrice={item.secondprice}
-                  handleDeleteBtn={e => console.log(e, "extra")}
+                  handleDeleteBtn={handleDeleteBtn}
                 />
               </div>
             );

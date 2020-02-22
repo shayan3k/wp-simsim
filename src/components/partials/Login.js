@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { JWTLogin, JWTLogout, JWTCheck } from "../services/Auth";
 
@@ -30,8 +28,6 @@ function Login() {
     (document.getElementById("loginbtn").style.cssText =
       "opacity: 1;pointer - events : none;");
 
-  // Function that will be called to refresh authorization
-
   const loginRequest = async e => {
     e.preventDefault();
     disableLoginBtn();
@@ -49,20 +45,27 @@ function Login() {
           setLogedIn(true);
           setEmail(data.email);
           setNiceName(data.niceName);
-
-          window.location.href = "/wordpress/";
         } else {
           setError({
             msg: data.message,
             status: "danger"
           });
         }
-        enableLoginBtn();
+        // enableLoginBtn();
       });
     } else {
       setError({ msg: "Recaptcha error", status: "danger" });
       enableLoginBtn();
     }
+  };
+
+  const handleUserNameOnChange = e => {
+    var data = e.target.value.replace(/[^0-9]+/g, "");
+    setUsername(data);
+  };
+
+  const handlePasswordOnChange = e => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -76,7 +79,8 @@ function Login() {
             name="username"
             placeholder="شماره موبایل"
             type="text"
-            onChange={e => setUsername(e.target.value)}
+            maxlength="11"
+            onChange={handleUserNameOnChange}
           />
         </div>
         <div className="input-group col-10 col-md-9 ml-auto p-0 my-3">
@@ -86,7 +90,7 @@ function Login() {
             name="username"
             placeholder="رمز ورود"
             type="password"
-            onChange={e => setPassword(e.target.value)}
+            onChange={handlePasswordOnChange}
           />
         </div>
         <button
