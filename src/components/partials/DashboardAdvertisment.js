@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import img1 from "../images/sim.svg";
 import Advertisment from "./Advertisment";
-import AdvertismentApply from "./AdvertismentApply";
 import { JWTHeader } from "../services/Auth";
+import secureStorage from "../services/Storage";
 import axios from "axios";
 
 function DashboardAdvertisment(props) {
   const [posts, setPosts] = useState([]);
   const baseUrl = "http://localhost/wordpress/wp-json";
-
-  const [advertisments, setAdvertisments] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,9 +18,7 @@ function DashboardAdvertisment(props) {
           .then(res => {
             console.log(user.data.id);
 
-            setAdvertisments(
-              res.data.filter(item => item.author.id === user.data.id)
-            );
+            setPosts(res.data.filter(item => item.author.id === user.data.id));
           })
           .catch(e => {
             console.log(e.response);
@@ -34,15 +29,27 @@ function DashboardAdvertisment(props) {
       });
   }, []);
 
-  const handleDeleteBtn = (e) => {
-    console.log('pressed')
-      }
-    
+  const handleDeleteBtn = (e, id, sellerPhoneNumber) => {
+    if (secureStorage.getItem("username") === sellerPhoneNumber) {
+      axios
+        .delete(baseUrl + "/wp/v2/myadvertisement/" + id, JWTHeader())
+        .then(res => {
+          console.log(res, posts, "done");
+
+          setPosts(
+            posts.filter(item => {
+              if (item.id !== id) return item;
+            })
+          );
+        })
+        .catch(e => console.log(e.response));
+    }
+  };
 
   return (
     <div className="container bg-white my-0 DashboardAdvertisment">
       <div className="row p-0 m-0">
-        {advertisments.map(item => (
+        {posts.map(item => (
           <div
             className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3"
             key={item.id}

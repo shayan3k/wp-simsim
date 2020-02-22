@@ -60,12 +60,6 @@ function SignUp() {
         msg += "<li>نام اشنباس</li>";
         flag = true;
       }
-      var p = /@"^([\u0600-\u06FF]+\s?)+$"/;
-
-      if (!Name.match(p)) {
-        msg += "<li>نام باید فارسی باشه</li>";
-        flag = true;
-      }
 
       if (Password !== VerifyPassword) {
         msg += "<li>رمز مغایر است</li>";
