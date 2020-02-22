@@ -4,14 +4,17 @@ import persianJs from "persianjs";
 import GoldCrown from "../images/gold.png";
 import SilverCrown from "../images/silver.png";
 import BronzCrown from "../images/bronz.png";
+import secureStorage from "../services/Storage";
 
 export default class Advertisment extends Component {
   constructor(props) {
     super(props);
     this.handleAdvertismentClick = this.handleAdvertismentClick.bind(this);
+    this.handleDeleteBtn = props.handleDeleteBtn.bind(this);
     this.flagRender = this.flagRender.bind(this);
     this.state = {
       toggle: false,
+      id: props.id,
       phoneNumber: props.phoneNumber,
       status: props.status,
       location: props.location,
@@ -132,7 +135,7 @@ export default class Advertisment extends Component {
           </div>
         </div>
         <div className="flip-card-back card d-flex justify-content-center align-items-center flex-column">
-          <div className="card-body w-100 h-100 d-flex justify-content-center align-items-center flex-column  ">
+          <div className="card-body w-100 d-flex justify-content-center align-items-center flex-column  ">
             <div className="flip-card-background"></div>
             <h1 className="font1 text-center p-2">
               {persianJs(this.state.sellerPhoneNumber)
@@ -140,6 +143,18 @@ export default class Advertisment extends Component {
                 .toString()}
             </h1>
             <p className="font2 text-center p-2">{this.state.sellerName}</p>
+
+            {secureStorage.getItem("username") ===
+            this.state.sellerPhoneNumber ? (
+              <button
+                className="btn btn-outline-danger"
+                onClick={e => this.handleDeleteBtn(e, this.state.id)}
+              >
+                پاک کردن
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

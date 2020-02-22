@@ -9,11 +9,11 @@ function SpecialOffers(props) {
     autoplaySpeed: 3100,
     infinite: true,
     speed: 650,
-    slidesToShow: 5,
-    slidesToScroll: props.ltr ? -5 : 5,
+    slidesToShow: 6,
+    slidesToScroll: props.ltr ? -3 : 3,
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1420,
         settings: {
           slidesToShow: 6,
           slidesToScroll: 6
@@ -21,7 +21,7 @@ function SpecialOffers(props) {
       },
 
       {
-        breakpoint: 1190,
+        breakpoint: 1358,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 5
@@ -29,7 +29,7 @@ function SpecialOffers(props) {
       },
 
       {
-        breakpoint: 997,
+        breakpoint: 1135,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4
@@ -37,7 +37,7 @@ function SpecialOffers(props) {
       },
 
       {
-        breakpoint: 780,
+        breakpoint: 929,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3
@@ -46,7 +46,7 @@ function SpecialOffers(props) {
 
       ,
       {
-        breakpoint: 618,
+        breakpoint: 707,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2
@@ -77,35 +77,52 @@ function SpecialOffers(props) {
         {...settings}
         className="container specialOffersToggler bg-custom "
       >
-        {
-        posts.map(item => {
+        {posts.map(item => {
           let flag = false;
-          if(props.flagController==='فوری' && item.sale === 'فوری') flag = true;
-          else if(props.flagController==='طلایی' && item.sale === '' && item.value==='طلایی') flag = true;
-          else if(props.flagController==='نقره ای' && item.sale === '' && item.value==='نقره ای') flag = true;
-          else if(props.flagController==='برنز' && item.sale === '' && item.value==='برنز') flag = true;
-      
-      if(flag === true)
-       return(
-          <div className="p-3 h-100" key={item.id}>
-            <Advertisment
-              phoneNumber={item.phonenumber}
-              status={item.simstatus}
-              rond={item.rond}
-              code={item.code}
-              value={item.value}
-              operator={item.operator}
-              location={item.location}
-              price={item.price}
-              text={item.text}
-              sellerPhoneNumber={item.author.username}
-              sellerName={item.author.display_name}
-              key={item.id}
-              sale={item.sale}
-              secondPrice={item.secondprice}
-            />
-          </div>
-        )})}
+          if (props.flagController === "فوری" && item.sale === "فوری")
+            flag = true;
+          else if (
+            props.flagController === "طلایی" &&
+            item.sale === "" &&
+            item.value === "طلایی"
+          )
+            flag = true;
+          else if (
+            props.flagController === "نقره ای" &&
+            item.sale === "" &&
+            item.value === "نقره ای"
+          )
+            flag = true;
+          else if (
+            props.flagController === "برنز" &&
+            item.sale === "" &&
+            item.value === "برنز"
+          )
+            flag = true;
+
+          if (flag === true)
+            return (
+              <div className="p-3 h-100" key={item.id}>
+                <Advertisment
+                  phoneNumber={item.phonenumber}
+                  status={item.simstatus}
+                  rond={item.rond}
+                  code={item.code}
+                  value={item.value}
+                  operator={item.operator}
+                  location={item.location}
+                  price={item.price}
+                  text={item.text}
+                  sellerPhoneNumber={item.author.username}
+                  sellerName={item.author.display_name}
+                  key={item.id}
+                  sale={item.sale}
+                  secondPrice={item.secondprice}
+                  handleDeleteBtn={e => console.log(e, "extra")}
+                />
+              </div>
+            );
+        })}
       </Slider>
     </>
   );

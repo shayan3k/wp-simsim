@@ -72,7 +72,9 @@ $font-datePicker: 0.6rem;
 }
 
 //FONT CLASSES;
-
+.white-space-nowrap {
+  white-space: nowrap !important;
+}
 .font-0 {
   font-size: 1.3rem !important;
 }
@@ -134,10 +136,14 @@ font3-4 {
 * {
   font-family: "Vazir", sans-serif;
   text-align: right;
+  scroll-behavior: smooth !important;
 }
 #root {
   overflow-x: hidden !important;
   background-color: $brand-background;
+}
+#App {
+  min-height: 100vh !important;
 }
 
 //FONT CONFIG
@@ -292,6 +298,7 @@ font3-4 {
 .nav-link {
   color: $brand-text-white;
   font-size: 0.8rem !important;
+  white-space: nowrap !important;
 }
 
 .dp__input {
@@ -322,6 +329,7 @@ font3-4 {
   background: transparent;
   box-shadow: none !important;
   border-bottom: 2px solid $brand-seperator !important;
+  white-space: nowrap !important;
 
   &:focus {
     border: none !important;
@@ -463,7 +471,7 @@ font3-4 {
 }
 .card-nime-rond {
   background: $brand-card-nime-rond;
-  padding: 0rem 0.6rem;
+  padding: 0rem 0.2rem;
   color: white;
   border-radius: 7px;
 }
@@ -492,6 +500,7 @@ font3-4 {
   background: #eee !important;
   border: 0px solid black;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .card-body-vip-advertiser {

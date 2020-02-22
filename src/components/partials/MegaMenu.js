@@ -226,23 +226,25 @@ export default function MegaMenu() {
         <div className="w-100 m-0 p-0 d-flex justify-content-between align-items-center">
           <div className="px-1 d-inline">
             {logedIn ? (
-              <div className='d-flex justify-content-between align-items-center'>
-              <Link className="logout-btn font3 d-flex justify-content-center align-items-center px-2 " onClick={() => JWTLogout()}>
-                <i class="fas fa-sign-out-alt fa-2x"></i>
-                
-              </Link>
-              <Link className="login-btn font2 px-2" to="/wordpress/dashboard">
-                داشبورد
-              </Link>
+              <div className="d-flex justify-content-between align-items-center">
+                <Link
+                  className="logout-btn font3 d-flex justify-content-center align-items-center px-2 "
+                  onClick={() => JWTLogout()}
+                >
+                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                </Link>
+                <Link
+                  className="login-btn font2 px-2"
+                  to="/wordpress/dashboard"
+                >
+                  داشبورد
+                </Link>
               </div>
-
             ) : (
               <Link className="login-btn font3" to="/wordpress/login">
-                            <i class="fas fa-sign-in-alt fa-rotate-180 fa-2x"></i>
-
+                <i class="fas fa-sign-in-alt fa-rotate-180 fa-2x"></i>
                 ورود/ثبت نام
               </Link>
-
             )}
           </div>
 
@@ -253,7 +255,7 @@ export default function MegaMenu() {
               id="samanTel"
               onClick={() => handlesamanTelBtn()}
             >
-              <i className="fas fa-caret-down fa-1x px-1 d-none d-sm-inline"></i>
+              <i className="fas fa-caret-down fa-1x px-1 d-none "></i>
               سامانتل
             </button>
             <button
@@ -263,7 +265,7 @@ export default function MegaMenu() {
               onClick={() => handleTaliaBtn()}
             >
               <i
-                className="fas fa-caret-down fa-1x px-1  d-none d-sm-inline"
+                className="fas fa-caret-down fa-1x px-1  d-none "
                 d-none
                 d-sm-inline
               ></i>
@@ -276,7 +278,7 @@ export default function MegaMenu() {
               onClick={() => handleRightelBtn()}
             >
               <i
-                className="fas fa-caret-down fa-1x px-1  d-none d-sm-inline"
+                className="fas fa-caret-down fa-1x px-1  d-none "
                 d-none
                 d-sm-inline
               ></i>
@@ -289,7 +291,7 @@ export default function MegaMenu() {
               onClick={() => handleIrancellBtn()}
             >
               <i
-                className="fas fa-caret-down fa-1x px-1  d-none d-sm-inline"
+                className="fas fa-caret-down fa-1x px-1  d-none "
                 d-none
                 d-sm-inline
               ></i>
@@ -302,7 +304,7 @@ export default function MegaMenu() {
               onClick={() => handleHamraheAvalBtn()}
             >
               <i
-                className="fas fa-caret-down fa-1x px-1  d-none d-sm-inline"
+                className="fas fa-caret-down fa-1x px-1  d-none "
                 d-none
                 d-sm-inline
               ></i>

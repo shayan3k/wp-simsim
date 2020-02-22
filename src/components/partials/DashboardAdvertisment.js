@@ -54,9 +54,10 @@ function DashboardAdvertisment(props) {
               text={item.text}
               sellerPhoneNumber={item.author.username}
               sellerName={item.author.display_name}
-              key={item.id}
+              id={item.id}
               sale={item.sale}
               secondPrice={item.secondprice}
+              handleDeleteBtn={e => console.log(e, "extra")}
             />
           </div>
         ))}

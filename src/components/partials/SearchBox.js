@@ -63,7 +63,7 @@ function SearchBox() {
   };
 
   return (
-    <div className="container mx-auto searchBox" id="searchBox">
+    <div className="container mx-auto searchBox" id="searchBox1">
       <div className="row bg-transparent">
         <div className="bg-transparent row col-12 col-md-4 order-2 order-md-1 p-0 m-0 pr-1">
           <img

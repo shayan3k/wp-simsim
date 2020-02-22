@@ -22,7 +22,7 @@ export default function Dashboard() {
         postUri="/custom-routes/v1/advertisments"
         userUri="/wp/v2/users/me"
       />
-      */}
+
       <FooterSeperator />
       <Footer />
     </>

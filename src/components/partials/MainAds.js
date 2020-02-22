@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import img1 from "../images/sim.svg";
 import Advertisment from "./Advertisment";
 import AdvertismentApply from "./AdvertismentApply";
 import { useStoreState } from "easy-peasy";
+import { JWTHeader } from "../services/Auth";
 import axios from "axios";
 
 function MainAds(props) {
@@ -27,9 +27,18 @@ function MainAds(props) {
       });
   }, []);
 
+  const handleDeleteBtn = (e, id) => {
+    console.log(e, id);
+    console.log(typeof posts);
+    axios
+      .delete(baseUrl + "/wp/v2/myadvertisement", {}, JWTHeader())
+      .then(res => console.log(res))
+      .catch(e => console.log(e));
+  };
+
   return (
     <div className="container bg-white my-0 mainAdsToggler">
-      <div className="row p-0 m-0">
+      <div className="d-flex justify-content-start align-items-stretch flex-wrap p-0 m-0">
         {posts.map((item, index) => {
           if (SimStatus != "" && SimStatus !== item.simstatus) return;
           if (SimValue != "" && SimValue !== item.value) return;
@@ -50,10 +59,14 @@ function MainAds(props) {
 
           return (
             <>
-              <div
-                className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3"
-                key={item.id}
-              >
+              {index % 5 == 0 ? (
+                <div className="m-0 px-1 py-3 flex-grow-1">
+                  <AdvertismentApply />
+                </div>
+              ) : (
+                ""
+              )}
+              <div className="m-0 px-1 py-3  flex-grow-1 " key={item.id}>
                 <Advertisment
                   phoneNumber={item.phonenumber}
                   status={item.simstatus}
@@ -69,15 +82,10 @@ function MainAds(props) {
                   key={item.id}
                   sale={item.sale}
                   secondPrice={item.secondprice}
+                  id={item.id}
+                  handleDeleteBtn={handleDeleteBtn}
                 />
               </div>
-              {index % 9 == 0 ? (
-                <div className="row col-6 col-sm-4 col-md-3 col-lg-2  col-xl-2 mx-auto mx-0 p-0 px-1 py-3">
-                  <AdvertismentApply />
-                </div>
-              ) : (
-                ""
-              )}
             </>
           );
         })}
