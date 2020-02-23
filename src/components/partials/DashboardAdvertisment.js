@@ -2,19 +2,22 @@ import React, { useState, useEffect } from "react";
 import Advertisment from "./Advertisment";
 import { JWTHeader } from "../services/Auth";
 import secureStorage from "../services/Storage";
+import { useStoreState } from "easy-peasy";
 import axios from "axios";
 
 function DashboardAdvertisment(props) {
   const [posts, setPosts] = useState([]);
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const postUri = useStoreState(state => state.urls.postUri);
+  const userUri = useStoreState(state => state.urls.userUri);
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
 
   useEffect(() => {
     axios
-      .get(baseUrl + props.userUri, JWTHeader())
+      .get(baseUrl + userUri, JWTHeader())
       .then(user => {
         console.log(user.data.id);
         axios
-          .get(baseUrl + props.postUri)
+          .get(baseUrl + postUri)
           .then(res => {
             console.log(user.data.id);
 

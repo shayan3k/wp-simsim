@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
-import vip from "../images/vip.png";
-import { TimelineMax } from "gsap";
+import { useStoreState } from "easy-peasy";
 import axios from "axios";
 import persianJs from "persianjs";
 
 export default function VipAdvertiser() {
-  const [acfData, setAcfData] = useState();
   const [Title, setTitle] = useState();
   const [ShopName, setShopName] = useState();
   const [PhoneNumbers, setPhoneNumbers] = useState();
   const [AdvertiserName, setAdvertiserName] = useState();
   const [Text, setText] = useState();
   const [AdvertiserPhoneNumber, setAdvertiserPhoneNumber] = useState();
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
+  const vipAdvertiser = useStoreState(state => state.urls.vipAdvertiser);
 
   useEffect(() => {
     axios
-      .get(baseUrl + "/wp/v2/pages")
+      .get(baseUrl + vipAdvertiser)
       .then(res => {
         res.data.map(item => {
           if (item.slug === "vipadvertiser") {

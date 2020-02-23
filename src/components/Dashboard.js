@@ -18,11 +18,7 @@ export default function Dashboard() {
       <SectionTitle title="تبلیغ جدید" collapse="DashboardAdvertisment" />
       <NewAdvertisment />
       <SectionTitle title="سیم کارت های من" collapse="DashboardAdvertisment" />
-      <DashboardAdvertisment
-        postUri="/custom-routes/v1/advertisments"
-        userUri="/wp/v2/users/me"
-      />
-
+      <DashboardAdvertisment />
       <FooterSeperator />
       <Footer />
     </>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, setState } from "react";
 import customSelect from "custom-select";
 import Message from "./Message";
-import { useStoreActions } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import "custom-select/build/custom-select.css";
 import { JWTHeader } from "../services/Auth";
 import Axios from "axios";
@@ -30,7 +30,8 @@ export default function NewAdvertisment() {
   const [Sale, setSale] = useState("");
   const [SecondPrice, setSecondPrice] = useState("");
   const [Text, setText] = useState("");
-  const baseUrl = "http://localhost/wordpress/wp-json";
+
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
 
   const SelectConfig = () => {
     const Selects = customSelect("select");

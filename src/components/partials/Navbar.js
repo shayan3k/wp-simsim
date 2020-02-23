@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreState } from "easy-peasy";
 import { TimelineLite, Power4 } from "gsap";
 import { Link } from "react-router-dom";
 import TimeAndDate from "./TimeAndDate";
@@ -10,11 +10,13 @@ function Navbar() {
     new TimelineLite({ paused: true })
   );
   const [Navbar, setNavbar] = useState([]);
-  const baseUrl = "http://localhost/wordpress/wp-json";
+
+  const navbar = useStoreState(state => state.urls.navbar);
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
 
   //Navbar useEffect
   useEffect(() => {
-    Axios.get(baseUrl + "/menus/v1/menus/Navbar1")
+    Axios.get(baseUrl + navbar)
       .then(res => {
         console.log(res.data.items);
         setNavbar(res.data.items);

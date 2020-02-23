@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreActions } from "easy-peasy";
 import customSelect from "custom-select";
 import "custom-select/build/custom-select.css";
 
@@ -55,7 +55,6 @@ function SearchBox() {
     Selects[5].value = "";
     setStatus("");
     setValue("");
-    set("");
     setCode("");
     setRond("");
     setCode("");

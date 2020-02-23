@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../images/irancell.jpg";
+import persianJs from "persianjs";
 import flag from "../images/sim-card.png";
 
 export default function Advertiser(props) {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import Link from "react-router-dom";
 import Axios from "axios";
 
 const validateEmail = email => {
@@ -20,7 +19,7 @@ function SignUp() {
   const [Password, setPassword] = useState("");
   const [CheckBox, setCheckBox] = useState("");
   const [VerifyPassword, setVerifyPassword] = useState("");
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
 
   //Function for resting fields after successfull signup
   const handleResetfields = () => {
@@ -204,7 +203,7 @@ function SignUp() {
             className="col-1 form-check-input"
             id="checkBox"
             value={CheckBox}
-            onChange={e => setCheckBox(event.target.checked)}
+            onChange={e => setCheckBox(e.target.checked)}
           />
         </div>
 

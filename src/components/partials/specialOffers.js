@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Advertisment from "./Advertisment";
+import { useStoreState } from "easy-peasy";
 import axios from "axios";
 
 function SpecialOffers(props) {
@@ -56,7 +57,7 @@ function SpecialOffers(props) {
   };
 
   const [posts, setPosts] = useState([]);
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
 
   useEffect(() => {
     axios
@@ -71,9 +72,9 @@ function SpecialOffers(props) {
   }, []);
   console.log(posts);
 
-  const handleDeleteBtn = (e) => {
-console.log('pressed')
-  }
+  const handleDeleteBtn = e => {
+    console.log("pressed");
+  };
 
   return (
     <>

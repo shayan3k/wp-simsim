@@ -1,8 +1,4 @@
 import React from "react";
-import img from "../images/logo.png";
-import img1 from "../images/Simcard.png";
-import img2 from "../images/Simcard.png";
-import img3 from "../images/Simcard.png";
 
 function Logo() {
   return (
@@ -17,7 +13,12 @@ function Logo() {
         </div>
 
         <div className="col-4 h-100  px-0  d-flex justify-content-start align-items-center">
-          <img src={img} alt="logo" className="w-100 h-100 bg-white" />
+          {/* <img src={img} alt="logo" className="w-100 h-100 bg-white" /> */}
+          <img
+            src="https://via.placeholder.com/350x70"
+            alt="spinner"
+            className="h-100 w-100 d-block mr-auto"
+          />
         </div>
       </div>
     </div>

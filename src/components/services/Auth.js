@@ -3,7 +3,6 @@ import secureStorage from "../services/Storage";
 
 //Move to Process.env
 const SECRET_KEY = "my secret key";
-
 const url = "http://localhost/wordpress/wp-json";
 
 export const JWTLogin = async data => {

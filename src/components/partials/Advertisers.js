@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Advertiser from "./Advertiser";
 import VipAdvertiser from "./VipAdvertiser";
+import { useStoreState } from "easy-peasy";
 
 function Advertisers() {
   const [advertisers, setAdvertisers] = useState();
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
+  const postsUri = useStoreState(state => state.urls.postsUri);
 
   useEffect(() => {
     axios
-      .get(baseUrl + "/wp/v2/advertiser")
+      .get(baseUrl + postsUri)
       .then(res => setAdvertisers(res.data))
       .catch(err => console.log(err.response));
   }, []);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { TimelineMax, TimelineLite, Power4 } from "gsap";
+import { TimelineLite, Power4 } from "gsap";
 
 function SectionTitle(props) {
   const [toggle, setToggle] = useState(false);

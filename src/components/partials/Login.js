@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { JWTLogin, JWTLogout, JWTCheck } from "../services/Auth";
+import { JWTLogin } from "../services/Auth";
 
 function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   const googleToken = useStoreState(state => state.google.token);
-
   const logedIn = useStoreState(state => state.auth.logedIn);
   const setLogedIn = useStoreActions(actions => actions.auth.setLogedIn);
-
-  const userEmail = useStoreState(state => state.auth.userEmail);
   const setEmail = useStoreActions(actions => actions.auth.setEmail);
-
-  const niceName = useStoreState(state => state.auth.niceName);
   const setNiceName = useStoreActions(actions => actions.auth.setNiceName);
-
-  const setMsg = useStoreActions(actions => actions.message.setMsg);
-  const setStatus = useStoreActions(actions => actions.message.setStatus);
   const setError = useStoreActions(actions => actions.message.setError);
 
   const disableLoginBtn = () =>
@@ -32,7 +24,6 @@ function Login() {
     e.preventDefault();
     disableLoginBtn();
     // Must be moved to process.env file in production mode
-    var url = "http://localhost/wordpress/wp-json";
     // Must be more secure in case of production mode
     if (!(googleToken.length == 0)) {
       let loginData = {

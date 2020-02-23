@@ -15,11 +15,12 @@ function MainAds(props) {
   const SimLocation = useStoreState(state => state.searchBox.location);
   const SimPriceRange = useStoreState(state => state.searchBox.priceRange);
 
-  const baseUrl = "http://localhost/wordpress/wp-json";
+  const baseUrl = useStoreState(state => state.urls.baseUrl);
+  const postUri = useStoreState(state => state.urls.postUri);
 
   useEffect(() => {
     axios
-      .get(baseUrl + props.uri)
+      .get(baseUrl + postUri)
       .then(response => {
         setPosts(response.data);
       })
@@ -31,7 +32,7 @@ function MainAds(props) {
   const handleDeleteBtn = (e, id, sellerPhoneNumber) => {
     if (secureStorage.getItem("username") === sellerPhoneNumber) {
       axios
-        .delete(baseUrl + "/wp/v2/myadvertisement/" + id, JWTHeader())
+        .delete(baseUrl + postsUri + id, JWTHeader())
         .then(res => {
           console.log(res, posts, "done");
 

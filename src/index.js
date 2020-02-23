@@ -33,42 +33,13 @@ const store = createStore({
       console.log(state.token);
     })
   },
-  login: {
-    username: "",
-    password: "",
-    googleToken: "",
-    setUsername: action((state, payload) => {
-      state.username = payload;
-      console.log(state.username);
-    }),
-
-    setPassword: action((state, payload) => {
-      state.password = payload;
-      console.log(state.password);
-    }),
-    setGoogleToken: action((state, payload) => {
-      state.googleToken = payload;
-      console.log(state.googleToken);
-    })
-  },
-  signup: {
-    username: "",
-    name: "",
-    password: "",
-    setUsername: action((state, payload) => {
-      state.username = payload;
-      console.log(state.username);
-    }),
-
-    setName: action((state, payload) => {
-      state.name = payload;
-      console.log(state.name);
-    }),
-
-    setPassword: action((state, payload) => {
-      state.password = payload;
-      console.log(state.password);
-    })
+  urls: {
+    baseUrl: "http://localhost/wordpress/wp-json",
+    postUri: "/custom-routes/v1/advertisments",
+    postsUri: "/wp/v2/advertiser",
+    userUri: "/wp/v2/users/me",
+    navbar: "/menus/v1/menus/Navbar1",
+    vipAdvertiser: "/wp/v2/pages"
   },
   message: {
     msg: "",

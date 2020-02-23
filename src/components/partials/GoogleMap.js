@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 
-export default function GoogleMap(props) {
+export default function GoogleMap() {
   const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
   const [Center, setCenter] = useState({
